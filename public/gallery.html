@@ -1,15 +1,15 @@
+<!-- gallery.html - Full with consistent sizes -->
 <!DOCTYPE html>
 <html lang="bg">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог торти • Кериан</title>
-  <meta name="description" content="Над 500 дизайна торти – детски, празнични, сватбени, ежедневни и с фотодекорация.">
+  <title>Каталог • Кериан</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <img src="public/logo_kerian.png" alt="Кериан лого" class="logo">
+    <img src="public/logo_kerian.png" alt="Кериан" class="logo">
     <nav>
       <ul>
         <li><a href="index.html">Начало</a></li>
@@ -19,11 +19,8 @@
       </ul>
     </nav>
   </header>
-
   <main>
-    <h1>Каталог торти</h1>
-    <p class="gallery-intro">Изберете дизайн и ни пишете в WhatsApp с кода (напр. А001) и желания размер.</p>
-
+    <h1>Каталог</h1>
     <div class="filters">
       <button data-filter="all" class="active">Всички</button>
       <button data-filter="detski">Детски</button>
@@ -32,20 +29,12 @@
       <button data-filter="vsekiden">Всеки ден</button>
       <button data-filter="fotodekoratsiya">Фотодекорация</button>
     </div>
-
-    <p id="photo-note" class="photo-note">За торти с фотодекорация: Изберете изображение (филми, герои, певци, карикатури и др.) и ни го изпратете чрез WhatsApp. Печатаме върху ядивна хартия.</p>
-
-    <div id="gallery-grid" class="gallery-grid">
-      <!-- JavaScript will fill this -->
-    </div>
+    <div id="gallery-grid"></div>
   </main>
-
   <footer>
-    <p>&copy; 2025 Кериан • София</p>
+    <p>&copy; 2025 Кериан</p>
   </footer>
-
   <a href="https://wa.me/359XXXXXXXXX" class="floating-whatsapp">💬</a>
-
   <script src="catalogue.js"></script>
   <script src="script.js"></script>
 </body>
