@@ -1,7 +1,3 @@
-// catalogue.js - Full updated version with category support
-// Add your full data to rawData array. Categories are now included.
-// For new items from Excel: Add category field like "detski", "praznichni", etc.
-
 const PRICE_PER_PIECE_LEVA = "4.50 лева";
 const PRICE_PER_PIECE_EURO = "2.30 euro";
 
@@ -17,17 +13,13 @@ const rawData = [
   { id: "А009", title_sizes: "Бебе - 20, 30", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614794/a009-1_tc6r31.webp", category: "detski" },
   { id: "А010", title_sizes: "Баскетболно игрище - 20,30+", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614793/a010-1_heggnh.webp", category: "detski" },
   { id: "А011", title_sizes: "Баскетболна топка - 16", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614794/a011_a019-1_ii29s5.webp", category: "detski" }
-  // Paste more here with category, e.g., { id: "B001", ..., category: "praznichni" }
+  // Add the rest here with category: "praznichni", "svatbeni", "vsekiden", "fotodekoratsiya"
 ];
 
 const cakes = rawData.map(item => {
   const parts = item.title_sizes.split(" - ");
   const title = parts[0].trim();
-  const sizesRaw = parts.length > 1 ? parts[1].trim() : "по запитване";
-  const sizes = sizesRaw
-    .replace(/,/g, ', ') 
-    .replace(/\s+/g, ' ') 
-    .replace(/\+/g, ' и повече');
+  const sizes = parts.length > 1 ? parts[1].trim().replace(/,/g, ', ') : "по запитване";
 
   return {
     id: item.id,
