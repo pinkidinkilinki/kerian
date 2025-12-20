@@ -14,9 +14,10 @@ h1, h2, h3 {
   font-weight: 700;
   color: #8B4513;
   margin-bottom: 1rem;
+  text-align: center; /* Ensures all headings are centered where needed */
 }
 
-h1 { font-size: 2.8rem; }
+h1 { font-size: 2.6rem; } /* Slightly smaller than before – elegant for gallery */
 h2 { font-size: 2.2rem; }
 h3 { font-size: 1.6rem; }
 
@@ -55,7 +56,7 @@ header {
   flex-wrap: wrap; 
   position: relative;
   z-index: 10;
-  gap: 0.5rem; /* Adds space when wrapped */
+  gap: 0.5rem;
 }
 .logo { 
   height: 60px; 
@@ -63,7 +64,7 @@ header {
 }
 nav ul { 
   display: flex; 
-  gap: 1rem; /* Reduced gap for better fit on small screens */
+  gap: 1rem;
   list-style: none; 
   flex-wrap: wrap; 
   justify-content: flex-end;
@@ -71,12 +72,12 @@ nav ul {
 nav a { 
   color: white; 
   font-weight: bold; 
-  font-size: 1rem; /* Slightly smaller font on mobile for better fit */
+  font-size: 1rem;
 }
 
 /* Contact info styling */
 .contact-info {
-  display: none; /* Hidden on mobile */
+  display: none;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -106,6 +107,34 @@ nav a {
   font-size: 1.2rem; 
   margin-top: 1rem; 
 }
+.viber-order-btn {
+  display: block;
+  max-width: 90%;
+  margin: 1.5rem auto 2rem;
+  padding: 1.2rem 1.5rem;
+  background: #7360F2;           /* Viber purple */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(115, 96, 242, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.viber-order-btn:hover,
+.viber-order-btn:active {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(115, 96, 242, 0.4);
+}
+
+@media (min-width: 768px) {
+  .viber-order-btn {
+    max-width: 700px;
+    font-size: 1.2rem;
+    padding: 1.4rem 2rem;
+  }
+}
 
 .today { padding: 2rem 1rem; text-align: center; }
 .today h2 { margin-bottom: 1.5rem; }
@@ -121,7 +150,14 @@ nav a {
 .filters button { padding: 0.6rem 1rem; border: none; border-radius: 30px; background: #eee; cursor: pointer; }
 .filters button.active { background: #8B4513; color: white; }
 
-.gallery-intro { text-align: center; padding: 0 1rem 1rem; }
+/* Gallery page specific – intro text centered */
+.gallery-intro { 
+  text-align: center; 
+  padding: 0 1rem 1.5rem; /* Slightly more bottom space */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1rem; }
 .cake-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; padding: 0.5rem; }
 .cake-card img { border-radius: 8px; }
@@ -160,22 +196,26 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   z-index: 1000;
 }
 
-/* Mobile-specific adjustments (for screens <768px) */
+/* Mobile-specific adjustments */
 @media (max-width: 767px) {
   header {
-    padding: 0.2rem 0.8rem; /* Slightly less padding */
+    padding: 0.2rem 0.8rem;
   }
 
   .logo {
-    height: 70px; /* Smaller logo to save space */
+    height: 70px;
   }
 
   nav ul {
-    gap: 0.8rem; /* Tighter menu items */
+    gap: 0.8rem;
   }
 
   nav a {
-    font-size: 0.95rem; /* Even smaller text */
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 2.3rem; /* Slightly smaller on mobile for gallery */
   }
 }
 
@@ -200,7 +240,6 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
     font-size: 1.1rem;
   }
 
-  /* Show and center the phone number in the middle */
   .contact-info {
     display: block;
   }
