@@ -163,7 +163,7 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
 /* Mobile-specific adjustments (for screens <768px) */
 @media (max-width: 767px) {
   header {
-    padding: 0.5rem 0.5rem; /* Slightly less padding */
+    padding: 0.8rem 0.3rem; /* Slightly less padding */
   }
 
   .logo {
