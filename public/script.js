@@ -3,12 +3,12 @@ function renderGallery(cakesToShow) {
   if (!grid) return;
 
   grid.innerHTML = cakesToShow.map(cake => `
-    <div class="cake-card" onclick="openLightbox('${cake.img}', '${cake.title}', '${cake.sizes}', '${cake.price}', '${cake.id}')">
-      <img src="${cake.img}" alt="${cake.title}" loading="lazy">
-      <h3>${cake.id} ${cake.title}</h3>
-      <p>${cake.price} • ${cake.sizes}</p>
-    </div>
-  `).join('');
+  <div class="cake-card" onclick="openLightbox('${cake.img}', '${cake.title}', '${cake.sizes}', '${cake.price}', '${cake.id}')">
+    <img src="${cake.img}" alt="${cake.title}" loading="lazy">
+    <h3>${cake.id} ${cake.title}</h3>
+    <p>${cake.minPrice} • ${cake.displayText}</p>
+  </div>
+`).join('');
 }
 
 function openLightbox(img, title, sizes, price, id) {
@@ -21,7 +21,7 @@ function openLightbox(img, title, sizes, price, id) {
       <div class="lightbox-info">
         <h2>${title}</h2>
         <p><strong>Код:</strong> ${id}</p>
-        <p><strong>Размери (брой парчета):</strong> ${sizes}</p>
+        <p><strong>Размери:</strong> ${sizes.replace(/\+/g, ' и повече')} парчета</p>
         <p><strong>Цена:</strong> ${price} на парче<br>
            Обща цена = брой парчета × ${price}<br>
            * Допълнителни такси могат да се приложат (напр. кутия, специални декорации)</p>
@@ -88,7 +88,11 @@ document.getElementById('sort-select')?.addEventListener('change', e => {
   applyFiltersAndSort();
 });
 
-// Initial load
 document.addEventListener('DOMContentLoaded', () => {
+  // Set default sort to newest
+  currentSort = 'newest';
+  const sortSelect = document.getElementById('sort-select');
+  if (sortSelect) sortSelect.value = 'newest';
+
   applyFiltersAndSort();
 });
