@@ -286,48 +286,58 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   font-family: 'Playfair Display', serif;
 }
 
-/* Gallery controls (search, sort, filters) */
+/* Gallery controls – cleaner, smaller, more elegant */
 .gallery-header-controls {
+  padding: 1rem;
+  margin: 1rem 1rem 2rem;
   display: flex;
   justify-content: center;
-  padding: 1.5rem 1rem;
-  background: #fff9f5;
-  margin: 1rem 1rem 2rem;
-  border-radius: 16px;
 }
+
 .central-controls-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
   max-width: 100%;
 }
+
+/* Smaller, pill-shaped unified controls */
 .control-item {
-  padding: 0.8rem 1.2rem;
-  border: 2px solid #ddd;
+  padding: 0.6rem 1rem;
+  border: 1.5px solid #ccc;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   background: white;
-  color: #333;
+  color: #444;
   font-weight: 500;
-  min-height: 48px;
+  min-height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
+
 .control-item:hover {
   border-color: #8B4513;
   background: #fff9f5;
+  transform: translateY(-1px);
 }
-.filters button.active {
+
+/* Active state */
+.filters button.active,
+.control-item:active {
   background: #8B4513;
   color: white;
   border-color: #8B4513;
+  box-shadow: 0 4px 10px rgba(139,69,19,0.2);
 }
-.search-input { width: 100%; max-width: 300px; }
-.sort-select { min-width: 180px; }
+
+/* Specific widths */
+.search-input { width: 100%; max-width: 260px; }
+.sort-select { min-width: 150px; }
 
 /* Mobile adjustments */
 @media (max-width: 767px) {
@@ -348,11 +358,11 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   .fillings-content { padding: 1rem; }
   .fillings-content p { font-size: 1rem; }
   .fillings-content ol { font-size: 1rem; line-height: 1.6; padding-left: 1.2rem; }
-  .gallery-header-controls { padding: 1rem; margin: 1rem 1rem 1.5rem; }
-  .central-controls-group { gap: 0.8rem; }
-  .control-item { padding: 0.7rem 1rem; font-size: 0.95rem; min-height: 44px; }
-  .search-input { max-width: 280px; }
-  .sort-select { min-width: 160px; }
+  .gallery-header-controls { padding: 0.8rem; margin: 1rem 1rem 1.5rem; }
+  .central-controls-group { gap: 0.6rem; }
+  .control-item { padding: 0.5rem 0.9rem; font-size: 0.9rem; min-height: 40px; }
+  .search-input { max-width: 240px; }
+  .sort-select { min-width: 140px; }
   .photo-note { padding: 0.8rem; margin: 1rem; font-size: 1rem; }
 
   .categories-showcase .showcase-item { flex: 0 0 80%; }
@@ -396,10 +406,10 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   .categories-showcase .showcase-item { flex: 0 0 30%; }
   .categories-showcase .showcase-item img { height: 320px; }
 
-  .gallery-header-controls { padding: 2rem; margin: 2rem 2rem 3rem; }
-  .central-controls-group { gap: 1.5rem; }
-  .search-input { width: 320px; }
-  .sort-select { width: 200px; }
-  .control-item { padding: 0.9rem 1.5rem; font-size: 1.05rem; }
+  .gallery-header-controls { padding: 1.5rem; margin: 2rem 2rem 3rem; }
+  .central-controls-group { gap: 1rem; }
+  .control-item { padding: 0.7rem 1.2rem; font-size: 1rem; }
+  .search-input { width: 300px; }
+  .sort-select { width: 180px; }
   .viber-order-btn { max-width: 700px; font-size: 1.2rem; padding: 1.4rem 2rem; }
 }
