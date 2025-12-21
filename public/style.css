@@ -1,264 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@400;500;600&display=swap');
-
-/* Global font styling */
-body {
-  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #fff;
-}
-
-/* Elegant headings */
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: #8B4513;
-  margin-bottom: 1rem;
-  text-align: center; /* Ensures all headings are centered where needed */
-}
-
-h1 { font-size: 2.6rem; } /* Slightly smaller than before – elegant for gallery */
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.6rem; }
-
-/* Descriptive text improvements */
-p, .today-note, .gallery-intro, .cat-link, details summary {
-  font-size: 1.1rem;
-  color: #555;
-  font-weight: 500;
-}
-
-/* Cake card descriptions */
-.cake-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: #8B4513;
-  margin: 0.5rem 0;
-}
-
-.cake-card p {
-  font-size: 1rem;
-  color: #666;
-}
-
-/* Rest of your existing CSS */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-img { max-width: 100%; height: auto; display: block; }
-a { color: #8B4513; text-decoration: none; }
-
-header { 
-  padding: 1rem; 
-  background: #8B4513; 
-  color: white; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  flex-wrap: wrap; 
-  position: relative;
-  z-index: 10;
-  gap: 0.5rem;
-}
-.logo { 
-  height: 60px; 
-  flex-shrink: 0;
-}
-nav ul { 
-  display: flex; 
-  gap: 1rem;
-  list-style: none; 
-  flex-wrap: wrap; 
-  justify-content: flex-end;
-}
-nav a { 
-  color: white; 
-  font-weight: bold; 
-  font-size: 1rem;
-}
-
-/* Contact info styling */
-.contact-info {
-  display: none;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.contact-info a {
-  color: white;
-}
-
-.hero { 
-  text-align: center; 
-  padding: 3rem 1rem 4rem;
-  background: #fff9f5; 
-  position: relative; 
-}
-.hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
-
-.viber-btn { 
-  display: inline-block; 
-  background: #7360F2; 
-  color: white; 
-  padding: 1rem 2rem; 
-  border-radius: 50px; 
-  font-size: 1.2rem; 
-  margin-top: 1rem; 
-}
-.viber-order-btn {
-  display: block;
-  max-width: 90%;
-  margin: 1.5rem auto 2rem;
-  padding: 1.2rem 1.5rem;
-  background: #7360F2;           /* Viber purple */
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-align: center;
-  border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(115, 96, 242, 0.3);
-  transition: transform 0.2s ease;
-}
-
-.viber-order-btn:hover,
-.viber-order-btn:active {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(115, 96, 242, 0.4);
-}
-
-@media (min-width: 768px) {
-  .viber-order-btn {
-    max-width: 700px;
-    font-size: 1.2rem;
-    padding: 1.4rem 2rem;
-  }
-}
-
-.today { padding: 2rem 1rem; text-align: center; }
-.today h2 { margin-bottom: 1.5rem; }
-.today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-.today-card img { border-radius: 12px; }
-.today-note { margin-top: 1.5rem; font-weight: bold; }
-
-.quick-categories { padding: 2rem 1rem; text-align: center; }
-.quick-categories h2 { margin-bottom: 1.5rem; }
-.cat-link { display: block; margin: 0.5rem auto; padding: 1rem; max-width: 300px; background: #f0f0f0; border-radius: 12px; font-weight: bold; }
-
-.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 1rem; }
-.filters button { padding: 0.6rem 1rem; border: none; border-radius: 30px; background: #eee; cursor: pointer; }
-.filters button.active { background: #8B4513; color: white; }
-
-/* Gallery page specific – intro text centered */
-.gallery-intro { 
-  text-align: center; 
-  padding: 0 1rem 1.5rem; /* Slightly more bottom space */
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1rem; }
-.cake-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; padding: 0.5rem; }
-.cake-card img { border-radius: 8px; }
-
-.photo-note { display: none; text-align: center; padding: 1rem; background: #fff9c4; margin: 1rem; border-radius: 8px; font-style: italic; }
-
-.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-.lightbox-content { max-width: 90%; max-height: 90%; text-align: center; position: relative; }
-.lightbox img { max-width: 100%; max-height: 70vh; border-radius: 12px; }
-.lightbox-info { background: white; padding: 1rem; border-radius: 12px; margin-top: 1rem; }
-.close { position: absolute; top: 10px; right: 20px; font-size: 2.5rem; color: white; cursor: pointer; }
-
-.shop { margin: 2rem 1rem; padding: 1rem; background: #f9f9f9; border-radius: 12px; }
-.map-link { display: inline-block; margin-top: 0.5rem; color: #7360F2; font-weight: bold; }
-.pickup-note { text-align: center; font-style: italic; margin: 2rem; }
-
-details { margin: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
-summary { cursor: pointer; font-weight: bold; padding: 1rem 0; }
-
-footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
-
-.floating-viber {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: #7360F2;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-/* Mobile-specific adjustments */
-@media (max-width: 767px) {
-  header {
-    padding: 0.2rem 0.8rem;
-  }
-
-  .logo {
-    height: 70px;
-  }
-
-  nav ul {
-    gap: 0.8rem;
-  }
-
-  nav a {
-    font-size: 0.95rem;
-  }
-
-  h1 {
-    font-size: 2.3rem; /* Slightly smaller on mobile for gallery */
-  }
-}
-
-/* Desktop improvements */
-@media (min-width: 768px) {
-  header { 
-    padding: 1rem 3rem; 
-    min-height: 80px;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  nav {
-    margin-left: auto;
-  }
-
-  nav ul {
-    gap: 1.5rem;
-  }
-
-  nav a {
-    font-size: 1.1rem;
-  }
-
-  .contact-info {
-    display: block;
-  }
-
-  .hero h1 { font-size: 3rem; }
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кериан • Торти София</title>
+  <meta name="description" content="Детски, празнични, сватбени, ежедневни торти и торти с фотодекорация в София. Над 500 дизайна от 4.50 лв/парче.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+  <img src="logo_kerian_sofia.png" alt="Кериан лого" class="logo">
   
-  .hero {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
+  <div class="contact-info">
+    <a href="tel:+359XXXXXXXXX">☎ +359 XXX XXX XXX</a>
+  </div>
   
-  .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+  <nav>
+    <ul>
+      <li><a href="index.html">Начало</a></li>
+      <li><a href="gallery.html">Каталог</a></li>
+      <li><a href="locations.html">Локации</a></li>
+      <li><a href="faq.html">Въпроси</a></li>
+    </ul>
+  </nav>
+</header>
+<section class="categories-showcase">
+  <h2>Нашите категории</h2>
+  <div class="showcase-grid">
+    <a href="gallery.html#detski" class="showcase-item">
+      <img src="https://temptationscakes.com.sg/cdn/shop/articles/unnamed_-_2023-04-11T164432.439.png?v=1681202711" alt="Детски торти" loading="lazy">
+      <div class="overlay">Детски торти</div>
+    </a>
+    <a href="gallery.html#praznichni" class="showcase-item">
+      <img src="https://thumbs.dreamstime.com/b/festive-extravagant-multi-tiered-cake-adorned-vibrant-red-flowers-juicy-fruits-berries-wedding-dessert-birthday-365131010.jpg" alt="Празнични торти" loading="lazy">
+      <div class="overlay">Празнични торти</div>
+    </a>
+    <a href="gallery.html#fotodekoratsiya" class="showcase-item">
+      <img src="https://cdn10.bigcommerce.com/s-wb36n7v/product_images/uploaded_images/pj-masks-cake-frame-jpg-98336.1483393675.800.1200.jpg?t=1566815089" alt="Торти с фотодекорация" loading="lazy">
+      <div class="overlay">С фотодекорация</div>
+    </a>
+    <a href="gallery.html#svatbeni" class="showcase-item">
+      <img src="https://www.theknot.com/tk-media/images/56744150-a2fe-4df0-8640-b7371d769762" alt="Сватбени торти" loading="lazy">
+      <div class="overlay">Сватбени торти</div>
+    </a>
+    <a href="gallery.html#vsekiden" class="showcase-item">
+      <img src="https://jamiegeller.com/wp-content/uploads/2019/07/modern-fruit-cake.png" alt="Торти за всеки ден" loading="lazy">
+      <div class="overlay">Торти за всеки ден</div>
+    </a>
+    
+  </div>
+</section>
+<main>
+    <section class="hero">
+  
+  <p class="hero-categories">
+    <a href="gallery.html#detski">Детски</a> • 
+    <a href="gallery.html#praznichni">Празнични</a> • 
+    <a href="gallery.html#fotodekoratsiya">С фотодекорация</a> • 
+    <a href="gallery.html#svatbeni">Сватбени</a> • 
+    <a href="gallery.html#vsekiden">Всеки ден</a> • 
+    <br>
+    Над 500 дизайна • От 2.00 евро/парче • София
+  </p>
+  <a href="viber://chat?number=%2B359896799620" class="viber-btn">Поръчай във Viber</a>
+</section>
 
-  .logo {
-    position: absolute;
-    top: -30px;
-    left: 3rem;
-    height: 150px;
-    z-index: 20;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-  }
-}
+    <section class="today">
+      <h2>Днес в кухнята</h2>
+      <div class="today-grid">
+        <div class="today-card">
+          <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765208929/1_wj7avy.webp" alt="Джунгла торта" loading="lazy">
+          <p>Джунгла • 16–30+ парчета</p>
+        </div>
+        <div class="today-card">
+          <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765208929/2_lu8amn.webp" alt="Аутобан торта" loading="lazy">
+          <p>Аутобан • 40–50+ парчета</p>
+        </div>
+        <div class="today-card">
+          <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614793/a003-1_zf9q0g.webp" alt="Автомобил торта" loading="lazy">
+          <p>Автомобил • 18 парчета</p>
+        </div>
+        <div class="today-card">
+          <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614793/a004-1_qhpmka.webp" alt="Аквариум торта" loading="lazy">
+          <p>Аквариум • 16 парчета</p>
+        </div>
+      </div>
+      <p class="today-note">Слотовете за утре се запълват бързо – пишете ни!</p>
+    </section>
+
+    <section class="quick-categories">
+      <h2>Избери категория</h2>
+      <a href="gallery.html#detski" class="cat-link">Детски торти</a>
+      <a href="gallery.html#praznichni" class="cat-link">Празнични торти</a>
+      <a href="gallery.html#svatbeni" class="cat-link">Сватбени торти</a>
+      <a href="gallery.html#vsekiden" class="cat-link">Торти за всеки ден</a>
+      <a href="gallery.html#fotodekoratsiya" class="cat-link">Торти с фотодекорация</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Кериан • София</p>
+  </footer>
+
+  <a href="viber://chat?number=%2B359896799620" class="floating-viber">💬</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
