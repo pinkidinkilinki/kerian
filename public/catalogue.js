@@ -21,8 +21,25 @@ const cakes = rawData.map(item => {
   const title = parts[0].trim();
   let sizes = parts.length > 1 ? parts[1].trim().replace(/,/g, ', ') : "по запитване";
 
-  // Replace + with clearer text
-  sizes = sizes.replace(/\+/g, ' и повече');
+  // Calculate minimum price and display text
+  const pricePerPiece = 4.50;
+  let minPrice = null;
+  let displayText = sizes; // fallback
+
+  if (sizes !== "по запитване") {
+    // Extract numbers for min price
+    const sizeNumbers = sizes.split(', ').map(s => parseInt(s.replace(' и повече', '').trim())).filter(n => !isNaN(n));
+    
+    if (sizeNumbers.length > 0) {
+      const minPieces = Math.min(...sizeNumbers);
+      minPrice = (minPieces * pricePerPiece).toFixed(2);
+
+      // Build nice display text
+      const hasPlus = sizes.includes('+') || sizes.includes('и повече');
+      const baseText = `${minPieces} парчета`;
+      displayText = hasPlus ? `${baseText}, може и повече` : baseText;
+    }
+  }
 
   return {
     id: item.id,
@@ -31,6 +48,8 @@ const cakes = rawData.map(item => {
     price: PRICE_PER_PIECE_LEVA,
     price2: PRICE_PER_PIECE_EURO,
     sizes: sizes,
+    minPrice: minPrice ? `${minPrice} лв` : "по запитване",
+    displayText: displayText,
     img: item.img
   };
 });
