@@ -19,7 +19,10 @@ const rawData = [
 const cakes = rawData.map(item => {
   const parts = item.title_sizes.split(" - ");
   const title = parts[0].trim();
-  const sizes = parts.length > 1 ? parts[1].trim().replace(/,/g, ', ') : "по запитване";
+  let sizes = parts.length > 1 ? parts[1].trim().replace(/,/g, ', ') : "по запитване";
+
+  // Replace + with clearer text
+  sizes = sizes.replace(/\+/g, ' и повече');
 
   return {
     id: item.id,
