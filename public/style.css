@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* Global resets and base styles */
+/* Global resets and body */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
@@ -11,7 +11,7 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { color: #8B4513; text-decoration: none; }
 
-/* Headings */
+/* Elegant headings */
 h1, h2, h3 {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -19,55 +19,62 @@ h1, h2, h3 {
   margin-bottom: 1rem;
   text-align: center;
 }
+
 h1 { font-size: 2.6rem; }
 h2 { font-size: 2.2rem; }
 h3 { font-size: 1.6rem; }
 
-/* Text improvements */
+/* Descriptive text improvements */
 p, .today-note, .gallery-intro, .cat-link, details summary {
   font-size: 1.1rem;
   color: #555;
   font-weight: 500;
 }
+
+/* Cake card descriptions */
 .cake-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
   color: #8B4513;
   margin: 0.5rem 0;
 }
+
 .cake-card p {
   font-size: 1rem;
   color: #666;
 }
 
 /* Header */
-header {
-  padding: 1rem;
-  background: #8B4513;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+header { 
+  padding: 1rem; 
+  background: #8B4513; 
+  color: white; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  flex-wrap: wrap; 
   position: relative;
   z-index: 10;
   gap: 0.5rem;
 }
-.logo { height: 60px; flex-shrink: 0; }
-nav ul {
-  display: flex;
+.logo { 
+  height: 60px; 
+  flex-shrink: 0;
+}
+nav ul { 
+  display: flex; 
   gap: 1rem;
-  list-style: none;
-  flex-wrap: wrap;
+  list-style: none; 
+  flex-wrap: wrap; 
   justify-content: flex-end;
 }
-nav a {
-  color: white;
-  font-weight: bold;
+nav a { 
+  color: white; 
+  font-weight: bold; 
   font-size: 1rem;
 }
 
-/* Contact info */
+/* Contact info styling */
 .contact-info {
   display: none;
   position: absolute;
@@ -77,117 +84,89 @@ nav a {
   font-weight: 600;
   white-space: nowrap;
 }
-.contact-info a { color: white; }
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 1rem 0.1rem;
-  background: #fff9f5;
-  position: relative;
+.contact-info a {
+  color: white;
+}
+
+/* Hero section */
+.hero { 
+  text-align: center; 
+  padding: 1rem 0.1rem 1rem;
+  background: #fff9f5; 
+  position: relative; 
 }
 .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
 
 /* Viber buttons */
-.viber-btn, .viber-order-btn {
-  display: inline-block;
-  background: #7360F2;
-  color: white;
-  border-radius: 50px;
-  font-weight: 600;
-  text-align: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(115,96,242,0.3);
-}
-.viber-btn {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  margin-top: 1rem;
+.viber-btn { 
+  display: inline-block; 
+  background: #7360F2; 
+  color: white; 
+  padding: 1rem 2rem; 
+  border-radius: 50px; 
+  font-size: 1.2rem; 
+  margin-top: 1rem; 
 }
 .viber-order-btn {
   display: block;
   max-width: 90%;
   margin: 1.5rem auto 2rem;
   padding: 1.2rem 1.5rem;
+  background: #7360F2;           
+  color: white;
   font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(115,96,242,0.3);
+  transition: transform 0.2s ease;
 }
-.viber-btn:hover, .viber-order-btn:hover,
-.viber-btn:active, .viber-order-btn:active {
+
+.viber-order-btn:hover,
+.viber-order-btn:active {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(115,96,242,0.4);
 }
 
 /* Today section */
 .today { padding: 2rem 1rem; text-align: center; }
+.today h2 { margin-bottom: 1.5rem; }
 .today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
 .today-card img { border-radius: 12px; }
 .today-note { margin-top: 1.5rem; font-weight: bold; }
 
 /* Quick categories */
 .quick-categories { padding: 2rem 1rem; text-align: center; }
-.cat-link {
-  display: block;
-  margin: 0.5rem auto;
-  padding: 1rem;
-  max-width: 300px;
-  background: #f0f0f0;
-  border-radius: 12px;
-  font-weight: bold;
-}
+.quick-categories h2 { margin-bottom: 1.5rem; }
+.cat-link { display: block; margin: 0.5rem auto; padding: 1rem; max-width: 300px; background: #f0f0f0; border-radius: 12px; font-weight: bold; }
 
-/* Gallery */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-.cake-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 0.5rem;
-}
+/* Filters (general) */
+.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 1rem; }
+.filters button { padding: 0.6rem 1rem; border: none; border-radius: 30px; background: #eee; cursor: pointer; }
+.filters button.active { background: #8B4513; color: white; }
+
+/* Gallery specific */
+.gallery-intro { text-align: center; padding: 0 1rem 1rem; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1rem; }
+.cake-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; padding: 0.5rem; }
 .cake-card img { border-radius: 8px; }
 
-.photo-note {
-  display: none;
-  text-align: center;
-  padding: 1rem;
-  background: #fff9c4;
-  margin: 1rem;
-  border-radius: 8px;
-  font-style: italic;
-}
+.photo-note { display: none; text-align: center; padding: 1rem; background: #fff9c4; margin: 1rem; border-radius: 8px; font-style: italic; }
 
 /* Lightbox */
-.lightbox {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 1000; }
 .lightbox-content { max-width: 90%; max-height: 90%; text-align: center; position: relative; }
 .lightbox img { max-width: 100%; max-height: 70vh; border-radius: 12px; }
 .lightbox-info { background: white; padding: 1rem; border-radius: 12px; margin-top: 1rem; }
-.close {
-  position: absolute;
-  top: 10px; right: 20px;
-  font-size: 2.5rem;
-  color: white;
-  cursor: pointer;
-}
+.close { position: absolute; top: 10px; right: 20px; font-size: 2.5rem; color: white; cursor: pointer; }
 
-/* Locations / FAQ */
+/* Shop/locations */
 .shop { margin: 2rem 1rem; padding: 1rem; background: #f9f9f9; border-radius: 12px; }
 .map-link { display: inline-block; margin-top: 0.5rem; color: #7360F2; font-weight: bold; }
 .pickup-note { text-align: center; font-style: italic; margin: 2rem; }
+
+/* Details/FAQ */
 details { margin: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
 summary { cursor: pointer; font-weight: bold; padding: 1rem 0; }
 
@@ -220,6 +199,7 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
 .fillings-accordion summary {
   padding: 1.2rem 1.5rem;
   background: #8B4513;
@@ -229,31 +209,42 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   cursor: pointer;
   text-align: center;
 }
-.fillings-accordion[open] summary { background: #A0522D; }
+
+.fillings-accordion[open] summary {
+  background: #A0522D;
+}
+
 .fillings-content {
   padding: 1.5rem;
   text-align: left;
   background: white;
 }
+
 .fillings-content ol {
   margin: 1rem 0;
   padding-left: 1.5rem;
   line-height: 1.8;
   font-size: 1.1rem;
 }
+
 .fillings-content p {
   text-align: center;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-/* Categories showcase (index page) */
+/* Categories showcase */
 .categories-showcase {
   padding: 2rem 1rem;
   text-align: center;
   background: #fff9f5;
 }
-.categories-showcase h2 { margin-bottom: 1.5rem; color: #8B4513; }
+
+.categories-showcase h2 {
+  margin-bottom: 1.5rem;
+  color: #8B4513;
+}
+
 .showcase-grid {
   display: flex;
   overflow-x: auto;
@@ -261,7 +252,11 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   padding: 0.5rem 0;
   scrollbar-width: none;
 }
-.showcase-grid::-webkit-scrollbar { display: none; }
+
+.showcase-grid::-webkit-scrollbar {
+  display: none;
+}
+
 .showcase-item {
   position: relative;
   flex: 0 0 80%;
@@ -271,8 +266,17 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
-.showcase-item:hover { transform: scale(1.05); }
-.showcase-item img { width: 100%; height: 280px; object-fit: cover; }
+
+.showcase-item:hover {
+  transform: scale(1.05);
+}
+
+.showcase-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
 .overlay {
   position: absolute;
   bottom: 0;
@@ -286,12 +290,14 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   font-family: 'Playfair Display', serif;
 }
 
-/* Gallery controls – cleaner, smaller, more elegant */
+/* Gallery controls (search, sort, filters) */
 .gallery-header-controls {
-  padding: 1rem;
-  margin: 1rem 1rem 2rem;
   display: flex;
   justify-content: center;
+  padding: 1.5rem 1rem;
+  background: #fff9f5;
+  margin: 1rem 1rem 2rem;
+  border-radius: 16px;
 }
 
 .central-controls-group {
@@ -299,92 +305,113 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1rem;
   max-width: 100%;
 }
 
-/* Smaller, pill-shaped unified controls */
+/* Unified style for all control items */
 .control-item {
-  padding: 0.6rem 1rem;
-  border: 1.5px solid #ccc;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #ddd;
   border-radius: 50px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   background: white;
-  color: #444;
+  color: #333;
   font-weight: 500;
-  min-height: 42px;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
 }
 
 .control-item:hover {
   border-color: #8B4513;
   background: #fff9f5;
-  transform: translateY(-1px);
 }
 
-/* Active state */
-.filters button.active,
-.control-item:active {
+/* Active category button */
+.filters button.active {
   background: #8B4513;
   color: white;
   border-color: #8B4513;
-  box-shadow: 0 4px 10px rgba(139,69,19,0.2);
 }
 
-/* Specific widths */
-.search-input { width: 100%; max-width: 260px; }
-.sort-select { min-width: 150px; }
+/* Search input specific */
+.search-input {
+  width: 100%;
+  max-width: 300px;
+}
 
-/* Mobile adjustments */
+/* Sort select specific */
+.sort-select {
+  min-width: 180px;
+}
+
+/* Mobile-specific adjustments */
 @media (max-width: 767px) {
-  header { padding: 0.2rem 0.8rem; }
-  .logo { height: 70px; }
-  nav ul { gap: 0.8rem; }
-  nav a { font-size: 0.95rem; }
-  h1 { font-size: 2.3rem; }
-
-  /* Compact elements above gallery */
-  .viber-order-btn {
-    margin: 1rem auto;
-    padding: 1rem 1.2rem;
-    font-size: 1rem;
+  header {
+    padding: 0.2rem 0.8rem;
   }
-  .fillings-accordion { margin: 1.5rem 1rem; }
-  .fillings-accordion summary { padding: 1rem; font-size: 1.1rem; }
-  .fillings-content { padding: 1rem; }
-  .fillings-content p { font-size: 1rem; }
-  .fillings-content ol { font-size: 1rem; line-height: 1.6; padding-left: 1.2rem; }
-  .gallery-header-controls { padding: 0.8rem; margin: 1rem 1rem 1.5rem; }
-  .central-controls-group { gap: 0.6rem; }
-  .control-item { padding: 0.5rem 0.9rem; font-size: 0.9rem; min-height: 40px; }
-  .search-input { max-width: 240px; }
-  .sort-select { min-width: 140px; }
-  .photo-note { padding: 0.8rem; margin: 1rem; font-size: 1rem; }
 
-  .categories-showcase .showcase-item { flex: 0 0 80%; }
-  .showcase-item img { height: 280px; }
+  .logo {
+    height: 70px;
+  }
+
+  nav ul {
+    gap: 0.8rem;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  .categories-showcase .showcase-item {
+    flex: 0 0 80%;
+  }
+
+  .showcase-item img {
+    height: 280px;
+  }
+  
 }
 
 /* Desktop improvements */
 @media (min-width: 768px) {
-  header {
-    padding: 1rem 3rem;
+  header { 
+    padding: 1rem 3rem; 
     min-height: 80px;
     justify-content: space-between;
     align-items: center;
   }
-  nav { margin-left: auto; }
-  nav ul { gap: 1.5rem; }
-  nav a { font-size: 1.1rem; }
-  .contact-info { display: block; }
+
+  nav {
+    margin-left: auto;
+  }
+
+  nav ul {
+    gap: 1.5rem;
+  }
+
+  nav a {
+    font-size: 1.1rem;
+  }
+
+  .contact-info {
+    display: block;
+  }
 
   .hero h1 { font-size: 3rem; }
-  .hero { padding-top: 4rem; padding-bottom: 4rem; }
-
+  
+  .hero {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
   .gallery-grid { grid-template-columns: repeat(4, 1fr); }
 
   .logo {
@@ -396,20 +423,50 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
   }
 
-  .fillings-accordion { margin: 2rem auto; max-width: 800px; }
+  .fillings-accordion {
+    margin: 2rem auto;
+    max-width: 800px;
+  }
 
   .categories-showcase .showcase-grid {
     overflow-x: visible;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .categories-showcase .showcase-item { flex: 0 0 30%; }
-  .categories-showcase .showcase-item img { height: 320px; }
 
-  .gallery-header-controls { padding: 1.5rem; margin: 2rem 2rem 3rem; }
-  .central-controls-group { gap: 1rem; }
-  .control-item { padding: 0.7rem 1.2rem; font-size: 1rem; }
-  .search-input { width: 300px; }
-  .sort-select { width: 180px; }
-  .viber-order-btn { max-width: 700px; font-size: 1.2rem; padding: 1.4rem 2rem; }
+  .categories-showcase .showcase-item {
+    flex: 0 0 30%;
+  }
+
+  .categories-showcase .showcase-item img {
+    height: 320px;
+  }
+
+  .gallery-header-controls {
+    padding: 2rem;
+    margin: 2rem 2rem 3rem;
+  }
+
+  .central-controls-group {
+    gap: 1.5rem;
+  }
+
+  .search-input {
+    width: 320px;
+  }
+
+  .sort-select {
+    width: 200px;
+  }
+
+  .control-item {
+    padding: 0.9rem 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .viber-order-btn {
+    max-width: 700px;
+    font-size: 1.2rem;
+    padding: 1.4rem 2rem;
+  }
 }
