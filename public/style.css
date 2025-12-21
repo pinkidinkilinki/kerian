@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@400;500;600&display=swap');
 
-/* Global font styling */
+/* Global resets and body */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
   font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   color: #333;
   background: #fff;
 }
+img { max-width: 100%; height: auto; display: block; }
+a { color: #8B4513; text-decoration: none; }
 
 /* Elegant headings */
 h1, h2, h3 {
@@ -14,10 +17,10 @@ h1, h2, h3 {
   font-weight: 700;
   color: #8B4513;
   margin-bottom: 1rem;
-  text-align: center; /* Ensures all headings are centered where needed */
+  text-align: center;
 }
 
-h1 { font-size: 2.6rem; } /* Slightly smaller than before – elegant for gallery */
+h1 { font-size: 2.6rem; }
 h2 { font-size: 2.2rem; }
 h3 { font-size: 1.6rem; }
 
@@ -41,11 +44,7 @@ p, .today-note, .gallery-intro, .cat-link, details summary {
   color: #666;
 }
 
-/* Rest of your existing CSS */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-img { max-width: 100%; height: auto; display: block; }
-a { color: #8B4513; text-decoration: none; }
-
+/* Header */
 header { 
   padding: 1rem; 
   background: #8B4513; 
@@ -90,6 +89,7 @@ nav a {
   color: white;
 }
 
+/* Hero section */
 .hero { 
   text-align: center; 
   padding: 1rem 0.1rem 1rem;
@@ -98,6 +98,7 @@ nav a {
 }
 .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
 
+/* Viber buttons */
 .viber-btn { 
   display: inline-block; 
   background: #7360F2; 
@@ -112,51 +113,127 @@ nav a {
   max-width: 90%;
   margin: 1.5rem auto 2rem;
   padding: 1.2rem 1.5rem;
-  background: #7360F2;           /* Viber purple */
+  background: #7360F2;           
   color: white;
   font-size: 1.1rem;
   font-weight: 600;
   text-align: center;
   border-radius: 50px;
-  box-shadow: 0 4px 12px rgba(115, 96, 242, 0.3);
+  box-shadow: 0 4px 12px rgba(115,96,242,0.3);
   transition: transform 0.2s ease;
 }
 
 .viber-order-btn:hover,
 .viber-order-btn:active {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(115, 96, 242, 0.4);
+  box-shadow: 0 6px 16px rgba(115,96,242,0.4);
 }
 
-@media (min-width: 768px) {
-  .viber-order-btn {
-    max-width: 700px;
-    font-size: 1.2rem;
-    padding: 1.4rem 2rem;
-  }
-}
-
+/* Today section */
 .today { padding: 2rem 1rem; text-align: center; }
 .today h2 { margin-bottom: 1.5rem; }
 .today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
 .today-card img { border-radius: 12px; }
 .today-note { margin-top: 1.5rem; font-weight: bold; }
 
+/* Quick categories */
 .quick-categories { padding: 2rem 1rem; text-align: center; }
 .quick-categories h2 { margin-bottom: 1.5rem; }
 .cat-link { display: block; margin: 0.5rem auto; padding: 1rem; max-width: 300px; background: #f0f0f0; border-radius: 12px; font-weight: bold; }
 
+/* Filters (general) */
 .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 1rem; }
 .filters button { padding: 0.6rem 1rem; border: none; border-radius: 30px; background: #eee; cursor: pointer; }
 .filters button.active { background: #8B4513; color: white; }
 
-/* Gallery page specific – intro text centered */
-.gallery-intro { 
-  text-align: center; 
-  padding: 0 1rem 1.5rem; /* Slightly more bottom space */
-  max-width: 800px;
-  margin: 0 auto;
+/* Gallery specific */
+.gallery-intro { text-align: center; padding: 0 1rem 1rem; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1rem; }
+.cake-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; padding: 0.5rem; }
+.cake-card img { border-radius: 8px; }
+
+.photo-note { display: none; text-align: center; padding: 1rem; background: #fff9c4; margin: 1rem; border-radius: 8px; font-style: italic; }
+
+/* Lightbox */
+.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.lightbox-content { max-width: 90%; max-height: 90%; text-align: center; position: relative; }
+.lightbox img { max-width: 100%; max-height: 70vh; border-radius: 12px; }
+.lightbox-info { background: white; padding: 1rem; border-radius: 12px; margin-top: 1rem; }
+.close { position: absolute; top: 10px; right: 20px; font-size: 2.5rem; color: white; cursor: pointer; }
+
+/* Shop/locations */
+.shop { margin: 2rem 1rem; padding: 1rem; background: #f9f9f9; border-radius: 12px; }
+.map-link { display: inline-block; margin-top: 0.5rem; color: #7360F2; font-weight: bold; }
+.pickup-note { text-align: center; font-style: italic; margin: 2rem; }
+
+/* Details/FAQ */
+details { margin: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+summary { cursor: pointer; font-weight: bold; padding: 1rem 0; }
+
+/* Footer */
+footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
+
+/* Floating Viber */
+.floating-viber {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #7360F2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
 }
+
+/* Fillings accordion */
+.fillings-accordion {
+  margin: 2rem 1rem;
+  background: #fff9f5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.fillings-accordion summary {
+  padding: 1.2rem 1.5rem;
+  background: #8B4513;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.fillings-accordion[open] summary {
+  background: #A0522D;
+}
+
+.fillings-content {
+  padding: 1.5rem;
+  text-align: left;
+  background: white;
+}
+
+.fillings-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.fillings-content p {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Categories showcase */
 .categories-showcase {
   padding: 2rem 1rem;
   text-align: center;
@@ -173,16 +250,16 @@ nav a {
   overflow-x: auto;
   gap: 1rem;
   padding: 0.5rem 0;
-  scrollbar-width: none; /* Hide scrollbar Firefox */
+  scrollbar-width: none;
 }
 
 .showcase-grid::-webkit-scrollbar {
-  display: none; /* Hide scrollbar Chrome/Safari */
+  display: none;
 }
 
 .showcase-item {
   position: relative;
-  flex: 0 0 80%; /* Large on mobile for strong visual impact */
+  flex: 0 0 80%;
   max-width: 300px;
   border-radius: 16px;
   overflow: hidden;
@@ -198,7 +275,6 @@ nav a {
   width: 100%;
   height: 280px;
   object-fit: cover;
-  display: block;
 }
 
 .overlay {
@@ -214,59 +290,62 @@ nav a {
   font-family: 'Playfair Display', serif;
 }
 
-/* Desktop: normal grid */
-@media (min-width: 768px) {
-  .showcase-grid {
-    overflow-x: visible;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .showcase-item {
-    flex: 0 0 30%;
-  }
-  
-  .showcase-item img {
-    height: 320px;
-  }
+/* Gallery controls (search, sort, filters) */
+.gallery-header-controls {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background: #fff9f5;
+  margin: 1rem 1rem 2rem;
+  border-radius: 16px;
 }
 
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1rem; }
-.cake-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; padding: 0.5rem; }
-.cake-card img { border-radius: 8px; }
+.central-controls-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+}
 
-.photo-note { display: none; text-align: center; padding: 1rem; background: #fff9c4; margin: 1rem; border-radius: 8px; font-style: italic; }
-
-.lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 1000; }
-.lightbox-content { max-width: 90%; max-height: 90%; text-align: center; position: relative; }
-.lightbox img { max-width: 100%; max-height: 70vh; border-radius: 12px; }
-.lightbox-info { background: white; padding: 1rem; border-radius: 12px; margin-top: 1rem; }
-.close { position: absolute; top: 10px; right: 20px; font-size: 2.5rem; color: white; cursor: pointer; }
-
-.shop { margin: 2rem 1rem; padding: 1rem; background: #f9f9f9; border-radius: 12px; }
-.map-link { display: inline-block; margin-top: 0.5rem; color: #7360F2; font-weight: bold; }
-.pickup-note { text-align: center; font-style: italic; margin: 2rem; }
-
-details { margin: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
-summary { cursor: pointer; font-weight: bold; padding: 1rem 0; }
-
-footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
-
-.floating-viber {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: #7360F2;
-  border-radius: 50%;
+/* Unified style for all control items */
+.control-item {
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #ddd;
+  border-radius: 50px;
+  font-size: 1rem;
+  background: white;
+  color: #333;
+  font-weight: 500;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  transition: all 0.3s ease;
+}
+
+.control-item:hover {
+  border-color: #8B4513;
+  background: #fff9f5;
+}
+
+/* Active category button */
+.filters button.active {
+  background: #8B4513;
   color: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
+  border-color: #8B4513;
+}
+
+/* Search input specific */
+.search-input {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Sort select specific */
+.sort-select {
+  min-width: 180px;
 }
 
 /* Mobile-specific adjustments */
@@ -288,7 +367,15 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   }
 
   h1 {
-    font-size: 2.3rem; /* Slightly smaller on mobile for gallery */
+    font-size: 2.3rem;
+  }
+
+  .categories-showcase .showcase-item {
+    flex: 0 0 80%;
+  }
+
+  .showcase-item img {
+    height: 280px;
   }
 }
 
@@ -333,5 +420,52 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
     height: 150px;
     z-index: 20;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+  }
+
+  .fillings-accordion {
+    margin: 2rem auto;
+    max-width: 800px;
+  }
+
+  .categories-showcase .showcase-grid {
+    overflow-x: visible;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .categories-showcase .showcase-item {
+    flex: 0 0 30%;
+  }
+
+  .categories-showcase .showcase-item img {
+    height: 320px;
+  }
+
+  .gallery-header-controls {
+    padding: 2rem;
+    margin: 2rem 2rem 3rem;
+  }
+
+  .central-controls-group {
+    gap: 1.5rem;
+  }
+
+  .search-input {
+    width: 320px;
+  }
+
+  .sort-select {
+    width: 200px;
+  }
+
+  .control-item {
+    padding: 0.9rem 1.5rem;
+    font-size: 1.05rem;
+  }
+
+  .viber-order-btn {
+    max-width: 700px;
+    font-size: 1.2rem;
+    padding: 1.4rem 2rem;
   }
 }
