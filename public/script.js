@@ -3,7 +3,7 @@ function renderGallery(cakesToShow) {
   if (!grid) return;
 
   grid.innerHTML = cakesToShow.map(cake => `
-    <div class="cake-card" onclick="openLightbox('${cake.img}', '${cake.title}', '${cake.sizes}')">
+    <div class="cake-card" onclick="openLightbox('${cake.img}', '${cake.title}', '${cake.sizes}', '${cake.price}', '${cake.id}')">
       <img src="${cake.img}" alt="${cake.title}" loading="lazy">
       <h3>${cake.id} ${cake.title}</h3>
       <p>${cake.price} • ${cake.sizes}</p>
@@ -11,7 +11,7 @@ function renderGallery(cakesToShow) {
   `).join('');
 }
 
-function openLightbox(img, title, sizes) {
+function openLightbox(img, title, sizes, price, id) {
   const modal = document.createElement('div');
   modal.className = 'lightbox';
   modal.innerHTML = `
@@ -20,9 +20,13 @@ function openLightbox(img, title, sizes) {
       <img src="${img}" alt="${title}">
       <div class="lightbox-info">
         <h2>${title}</h2>
-        <p>Код: ${title.includes(' ') ? title.split(' ')[0] : ''}</p>
-        <p>Размери: ${sizes}</p>
-        <a href="https://wa.me/359XXXXXXXXX?text=Здравейте!%20Искам%20торта%20${title}%20(${sizes})" class="whatsapp-btn">Поръчай сега</a>
+        <p><strong>Код:</strong> ${id}</p>
+        <p><strong>Размери (брой парчета):</strong> ${sizes}</p>
+        <p><strong>Цена:</strong> ${price} на парче<br>
+           Обща цена = брой парчета × ${price}<br>
+           * Допълнителни такси могат да се приложат (напр. кутия, специални декорации)</p>
+        <a href="viber://chat?number=%2B359896799620&draft=Здравейте!%20Искам%20торта%20${id}%20${encodeURIComponent(title)}%20(${sizes}%20парчета)" 
+           class="viber-btn">Поръчай във Viber</a>
       </div>
     </div>
   `;
@@ -30,18 +34,61 @@ function openLightbox(img, title, sizes) {
   modal.addEventListener('click', e => e.target === modal && modal.remove());
 }
 
-// Filters
-document.querySelectorAll('.filters button')?.forEach(btn => {
+// Filtering variables
+let currentFilter = 'all';
+let currentSort = 'default';
+let currentSearch = '';
+
+function applyFiltersAndSort() {
+  let filtered = currentFilter === 'all' ? cakes : cakes.filter(c => c.category === currentFilter);
+
+  // Search
+  if (currentSearch) {
+    const searchLower = currentSearch.toLowerCase();
+    filtered = filtered.filter(c => 
+      c.title.toLowerCase().includes(searchLower) || 
+      c.id.toLowerCase().includes(searchLower)
+    );
+  }
+
+  // Sorting
+  if (currentSort === 'newest') {
+    filtered.sort((a, b) => b.id.localeCompare(a.id)); // Newest first (higher ID)
+  } else if (currentSort === 'oldest') {
+    filtered.sort((a, b) => a.id.localeCompare(b.id)); // Oldest first (lower ID) — FIXED HERE
+  }
+  // 'default' keeps original order from catalogue.js
+
+  renderGallery(filtered);
+}
+
+// Category filters
+document.querySelectorAll('.filters button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelector('.filters .active')?.classList.remove('active');
     btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    const filtered = filter === 'all' ? cakes : cakes.filter(c => c.category === filter);
-    renderGallery(filtered);
+    currentFilter = btn.dataset.filter;
+    applyFiltersAndSort();
 
-    document.getElementById('photo-note').style.display = filter === 'fotodekoratsiya' ? 'block' : 'none';
+    // Show/hide photo note
+    document.getElementById('photo-note').style.display = 
+      currentFilter === 'fotodekoratsiya' ? 'block' : 'none';
   });
 });
 
-// Initial render
-document.addEventListener('DOMContentLoaded', () => renderGallery(cakes));
+// Search input
+document.getElementById('cake-search')?.addEventListener('input', e => {
+  currentSearch = e.target.value.trim();
+  applyFiltersAndSort();
+});
+
+// Sort dropdown
+document.getElementById('sort-select')?.addEventListener('change', e => {
+  currentSort = e.target.value;
+  applyFiltersAndSort();
+});
+
+// Initial load
+document.addEventListener('DOMContentLoaded', () => {
+  applyFiltersAndSort();
+});
