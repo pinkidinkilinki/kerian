@@ -1,5 +1,5 @@
-const PRICE_PER_PIECE_LEVA = "4.50 лева";
-const PRICE_PER_PIECE_EURO = "2.30 euro";
+const PRICE_PER_PIECE_LEVA = 4.50;
+const PRICE_PER_PIECE_EURO = 2.30; // Half for the promotion
 
 const rawData = [
   { id: "А001", title_sizes: "Джунгла - 16, 20, 30 +", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765208929/1_wj7avy.webp", category: "detski" },
@@ -12,8 +12,8 @@ const rawData = [
   { id: "А008", title_sizes: "Басейн - 20 ,30 +", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614793/a008-1_wgmykv.webp", category: "detski" },
   { id: "А009", title_sizes: "Бебе - 20, 30", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614794/a009-1_tc6r31.webp", category: "detski" },
   { id: "А010", title_sizes: "Баскетболно игрище - 20,30+", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614793/a010-1_heggnh.webp", category: "detski" },
-  { id: "А011", title_sizes: "Баскетболна топка - 16", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614794/a011_a019-1_ii29s5.webp", category: "detski" }
-  // Add the rest here with category: "praznichni", "svatbeni", "vsekiden", "fotodekoratsiya"
+  { id: "А011", title_sizes: "Баскетболна топка - 16", img: "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614794/a011_a019-1_ii29s5.webp", category: "detski" },
+  // Add the rest of your rawData here
 ];
 
 const cakes = rawData.map(item => {
@@ -21,20 +21,28 @@ const cakes = rawData.map(item => {
   const title = parts[0].trim();
   let sizes = parts.length > 1 ? parts[1].trim().replace(/,/g, ', ') : "по запитване";
 
-  // Calculate minimum price and display text
-  const pricePerPiece = 4.50;
-  let minPrice = null;
+  // Replace + with clearer text for full sizes
+  sizes = sizes.replace(/\+/g, ' и повече');
+
+  // Calculate minimum prices and display text
+  let minPriceLeva = null;
+  let minPriceEuro = null;
   let displayText = sizes; // fallback
 
   if (sizes !== "по запитване") {
-    // Extract numbers for min price
-    const sizeNumbers = sizes.split(', ').map(s => parseInt(s.replace(' и повече', '').trim())).filter(n => !isNaN(n));
-    
+    // Extract all numbers from sizes string
+    const matches = sizes.match(/\d+/g);
+    let sizeNumbers = [];
+    if (matches) {
+      sizeNumbers = matches.map(n => parseInt(n, 10));
+    }
+
     if (sizeNumbers.length > 0) {
       const minPieces = Math.min(...sizeNumbers);
-      minPrice = (minPieces * pricePerPiece).toFixed(2);
+      minPriceLeva = (minPieces * PRICE_PER_PIECE_LEVA).toFixed(2);
+      minPriceEuro = (minPieces * PRICE_PER_PIECE_EURO).toFixed(2);
 
-      // Build nice display text
+      // Build display text
       const hasPlus = sizes.includes('+') || sizes.includes('и повече');
       const baseText = `${minPieces} парчета`;
       displayText = hasPlus ? `${baseText}, може и повече` : baseText;
@@ -45,10 +53,11 @@ const cakes = rawData.map(item => {
     id: item.id,
     title: title,
     category: item.category || "detski",
-    price: PRICE_PER_PIECE_LEVA,
-    price2: PRICE_PER_PIECE_EURO,
+    priceLeva: PRICE_PER_PIECE_LEVA,
+    priceEuro: PRICE_PER_PIECE_EURO,
     sizes: sizes,
-    minPrice: minPrice ? `${minPrice} лв` : "по запитване",
+    minPriceLeva: minPriceLeva ? `${minPriceLeva} лв` : "по запитване",
+    minPriceEuro: minPriceEuro ? `${minPriceEuro} €` : "по запитване",
     displayText: displayText,
     img: item.img
   };
