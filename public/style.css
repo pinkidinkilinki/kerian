@@ -352,6 +352,24 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   font-weight: 600;
   font-family: 'Playfair Display', serif;
 }
+.categories-showcase .showcase-item img {
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  transition: all 0.3s ease;
+}
+
+.categories-showcase .showcase-item:hover img {
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)) drop-shadow(0 8px 12px rgba(0,0,0,0.15));
+  transform: translateY(-5px);
+}
+.categories-showcase {
+  background: #fdf8f0; /* лек кремав, като твоя hero */
+  /* Или по-топъл: #fdf8f0 */
+  /* Или с текстура: */
+  /* background: url('https://res.cloudinary.com/.../your-cream-texture.webp') repeat; */
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
 
 .gallery-header-controls {
   padding: 1rem;
@@ -432,7 +450,57 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   box-shadow: 0 10px 20px rgba(115, 96, 242, 0.5);
   background: #5a4fcf;
 }
+.shop img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+.shop .note {
+  font-style: italic;
+  color: #888;
+  margin-bottom: 1rem;
+}
+.map-link {
+  display: inline-block;
+  background: #8B4513;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+.map-link:hover {
+  background: #A0522D;
+}
+.lightbox-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
 
+.lightbox-close-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+.lightbox-close-btn svg {
+  width: 20px;
+  height: 20px;
+}
 /* Mobile adjustments */
 @media (max-width: 767px) {
   header { padding: 0.2rem 0.8rem; }
@@ -465,6 +533,14 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   .lightbox-content { width: 92%; margin: 1rem auto; }
   .lightbox-info { padding: 1.2rem; }
   .close { top: 8px; right: 12px; font-size: 2.4rem; width: 40px; height: 40px; }
+}
+.load-more-container {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+#load-more-btn {
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
 }
 
 /* Desktop improvements */
