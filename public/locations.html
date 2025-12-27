@@ -5,11 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Локации • Кериан</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .shop img {
+      max-width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 1rem auto;
+      display: block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .map-link {
+      display: inline-block;
+      background: #8B4513;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.2s ease;
+    }
+    .map-link:hover {
+      background: #A0522D;
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="public/logo_kerian.png" alt="Кериан лого" class="logo">
+    <img src="logo_kerian_sofia.png" alt="Кериан лого" class="logo">
     <nav>
+      <div class="contact-info">
+  ☎ <a href="tel:+359896799620">0896 799 620</a> • <a href="tel:+359896229538">0896 229 538</a>
+</div>
       <ul>
         <li><a href="index.html">Начало</a></li>
         <li><a href="gallery.html">Каталог</a></li>
@@ -23,26 +52,30 @@
     <h1>Нашите магазини в София</h1>
 
     <section class="shop">
-      <h2>Магазин 1</h2>
-      <p>Адрес: [Въведете точен адрес, напр. ул. Хан Аспарух 15, София]</p>
-      <p>Работно време: Понеделник–Петък 8:00–19:00<br>Събота–Неделя 9:00–17:00</p>
-      <a href="https://maps.google.com/?q=[адрес]" class="map-link">Виж на Google Maps</a>
+      <h2>Основен магазин - ж.к. Надежда 4 (препоръчителен)</h2>
+      <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766668058/Untitled-2-1024x724_axnh7o.jpg" alt="Външен вид на магазина Кериан в Надежда" loading="lazy">
+      <p>Адрес: Сладкарници Кериан, Sofia, Nadejda, ul.Turgovska, X bl. 417, 1231 Sofia, Bulgaria</p>
+      <p>Телефон: <a href="tel:+359896799620">+359 896 799 620</a></p>
+      <p>Работно време: Всеки ден 7:00–20:00</p>
+      <a href="https://maps.app.goo.gl/xvJnZaDEq6ZDZNna8" class="map-link">Виж на Google Maps</a>
     </section>
 
     <section class="shop">
-      <h2>Магазин 2</h2>
-      <p>Адрес: [Въведете точен адрес, напр. бул. Витоша 88, София]</p>
-      <p>Работно време: Понеделник–Петък 8:00–19:00<br>Събота–Неделя 9:00–17:00</p>
-      <a href="https://maps.google.com/?q=[адрес]" class="map-link">Виж на Google Maps</a>
+      <h2>Алтернативен магазин - ж.к. Толстой</h2>
+      <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766668058/11-1024x724_a4ujwy.jpg" alt="Вътрешен вид на магазина Кериан в ж.к. Толстой" loading="lazy">
+      <p>Адрес: ж.к. Лев Толстой 44, 1220 София, Bulgaria</p>
+      <p>Телефон: <a href="tel:+359896229538">+359 896 229 538</a> или <a href="tel:+359896799620">+359 896 799 620</a></p>
+      <p>Работно време: Всеки ден 7:00–18:30</p>
+      <a href="https://maps.google.com/?q=42.726750,23.311750" class="map-link">Виж на Google Maps</a>
     </section>
 
-    <p class="pickup-note">Поръчките се вземат само от магазините. Не предлагаме доставка.</p>
+    <p class="pickup-note">Поръчките се вземат само от магазините. Доставка - по запитване.</p>
   </main>
 
   <footer>
-    <p>&copy; 2025 Кериан • София</p>
+    <p>&copy; 2026 Кериан • София</p>
   </footer>
 
-  <a href="https://wa.me/359XXXXXXXXX" class="floating-whatsapp">💬</a>
+  <a href="viber://chat?number=%2B359896229538" class="floating-viber">💬</a>
 </body>
 </html>
