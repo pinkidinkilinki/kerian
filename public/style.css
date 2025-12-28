@@ -67,17 +67,31 @@ nav a {
   font-size: 1rem;
 }
 
-/* Contact info */
+/* Contact info - hidden on mobile, visible and centered on desktop */
 .contact-info {
-  display: none;
+  display: none; /* Hidden by default (mobile) */
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.2rem;
-  font-weight: 600;
-  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  top: 50%; /* Center vertically inside header */
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  line-height: 1.4;
+  white-space: normal;
+  max-width: 90%;
+  padding: 0;
 }
-.contact-info a { color: white; }
+
+.contact-info a {
+  color: white;
+  text-decoration: underline;
+}
+
+.contact-info a:hover {
+  text-decoration: none;
+}
 
 /* Hero */
 .hero {
@@ -500,6 +514,50 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
 .lightbox-close-btn svg {
   width: 20px;
   height: 20px;
+}
+/* E-Catalogue Pages */
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.page-card {
+  cursor: pointer;
+  text-align: center;
+  padding: 1rem;
+  border: 2px solid #f0f0f0;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.page-card:hover {
+  border-color: #8B4513;
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+.page-card img {
+  border-radius: 12px;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.page-card p {
+  font-weight: 600;
+  color: #8B4513;
+}
+.page-card small {
+  display: block;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
+/* Large page view in lightbox */
+.page-lightbox img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 /* Mobile adjustments */
 @media (max-width: 767px) {
