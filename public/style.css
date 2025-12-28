@@ -559,46 +559,117 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
-/* Mobile adjustments */
+/* Mobile-specific optimizations */
 @media (max-width: 767px) {
-  header { padding: 0.2rem 0.8rem; }
-  .logo { height: 70px; }
-  nav ul { gap: 0.8rem; }
-  nav a { font-size: 0.95rem; }
-  h1 { font-size: 2.3rem; }
-
-  /* Compact elements above gallery */
-  .viber-order-btn {
-    margin: 1rem auto;
-    padding: 1rem 1.2rem;
-    font-size: 1rem;
+  /* Smaller header on mobile - stays in one row */
+  header {
+    padding: 0.5rem 1rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
   }
-  .fillings-accordion { margin: 1.5rem 1rem; }
-  .fillings-accordion summary { padding: 1rem; font-size: 1.1rem; }
-  .fillings-content { padding: 1rem; }
-  .fillings-content p { font-size: 1rem; }
-  .fillings-content ol { font-size: 1rem; line-height: 1.6; padding-left: 1.2rem; }
-  .gallery-header-controls { padding: 0.8rem; margin: 1rem 1rem 1.5rem; }
-  .central-controls-group { gap: 0.6rem; }
-  .control-item { padding: 0.5rem 0.9rem; font-size: 0.9rem; min-height: 40px; }
-  .search-input { max-width: 240px; }
-  .sort-select { min-width: 140px; }
-  .photo-note { padding: 0.8rem; margin: 1rem; font-size: 1rem; }
 
-  .categories-showcase .showcase-item { flex: 0 0 80%; }
-  .showcase-item img { height: 280px; }
+  .logo {
+    height: 45px; /* Was 60px - smaller logo */
+  }
 
-  .lightbox-content { width: 92%; margin: 1rem auto; }
-  .lightbox-info { padding: 1.2rem; }
-  .close { top: 8px; right: 12px; font-size: 2.4rem; width: 40px; height: 40px; }
-}
-.load-more-container {
-  text-align: center;
-  padding: 2rem 1rem;
-}
-#load-more-btn {
-  font-size: 1.1rem;
-  padding: 1rem 2rem;
+  nav ul {
+    gap: 0.8rem;
+  }
+
+  nav a {
+    font-size: 0.9rem; /* Smaller nav text */
+  }
+
+  /* Hide contact info on mobile (as you wanted) */
+  .contact-info {
+    display: none !important;
+  }
+
+  /* Reduce vertical spacing above gallery */
+  h1 {
+    font-size: 2rem;
+    margin: 1rem 0;
+  }
+
+  .viber-order-btn {
+    font-size: 1rem;
+    padding: 0.9rem 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .fillings-accordion {
+    margin: 1rem 0;
+  }
+
+  .fillings-accordion summary {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .gallery-header-controls {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .central-controls-group {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .filters button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .photo-note {
+    font-size: 1rem;
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+
+  /* Gallery cards stay large and readable - no change needed */
+  /* But reduce top margin so images appear sooner */
+  #gallery-grid {
+    margin-top: 0.5rem;
+  }
+
+  .load-more-container {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Edible catalogue section - smaller on mobile */
+  .edible-catalogue h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+  }
+
+  .page-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .page-card p {
+    font-size: 0.9rem;
+  }
+  .viber-order-btn:first-of-type {
+    display: none; /* Hide the big top Viber button on mobile if desired */
+  }
 }
 
 /* Desktop improvements */
