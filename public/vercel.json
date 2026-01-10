@@ -1,32 +1,40 @@
 {
   "redirects": [
-    
-    { "source": "/store", "destination": "/gallery.html" },
-    { "source": "/produkt/:slug*", "destination": "/gallery.html" },
-    { "source": "/produkt-kategoriya/:slug*", "destination": "/gallery.html" },
+    // WooCommerce products → new catalogue (covers /produkt/anything/)
+    { "source": "/produkt/:slug*", "destination": "/gallery.html", "permanent": true },
 
-    
-    { "source": "/my-account", "destination": "/" },
-    { "source": "/my-account/:path*", "destination": "/" },
-    { "source": "/contact-us", "destination": "/locations.html" },  
-    { "source": "/contact", "destination": "/locations.html" },
+    // WooCommerce categories → catalogue (covers /produkt-kategoriya/svatbeni-torti/ etc.)
+    { "source": "/produkt-kategoriya/:slug*", "destination": "/gallery.html", "permanent": true },
 
-    
-    { "source": "/index.php", "destination": "/" },
-    { "source": "/home", "destination": "/" },
+    // Main shop page
+    { "source": "/store", "destination": "/gallery.html", "permanent": true },
 
-    
-    { "source": "/:path*",
+    // Account/login (no need in static site)
+    { "source": "/my-account", "destination": "/", "permanent": true },
+    { "source": "/my-account/:path*", "destination": "/", "permanent": true },
+
+    // Contact page
+    { "source": "/contact-us", "destination": "/locations.html", "permanent": true },
+    { "source": "/contact", "destination": "/locations.html", "permanent": true },
+
+    // Old index/home variations
+    { "source": "/index.php", "destination": "/", "permanent": true },
+    { "source": "/home", "destination": "/", "permanent": true },
+
+    // Catch query strings (e.g., ?p=123, ?product_id=...)
+    { 
+      "source": "/:path*",
       "destination": "/gallery.html",
       "has": [
         { "type": "query", "key": "p" },
         { "type": "query", "key": "product_id" },
         { "type": "query", "key": "page_id" }
-      ]
+      ],
+      "permanent": true
     },
 
-    
-    { "source": "/:path*", "destination": "/" }
+    // Safety catch-all for any other paths (e.g., random 503 pages) → home
+    { "source": "/:path*", "destination": "/", "permanent": true }
   ],
 
   "cleanUrls": true,
