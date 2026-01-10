@@ -1,27 +1,27 @@
 {
   "redirects": [
-    // WooCommerce products → new catalogue (covers /produkt/anything/)
+    
     { "source": "/produkt/:slug*", "destination": "/gallery.html", "permanent": true },
 
-    // WooCommerce categories → catalogue (covers /produkt-kategoriya/svatbeni-torti/ etc.)
+    
     { "source": "/produkt-kategoriya/:slug*", "destination": "/gallery.html", "permanent": true },
 
-    // Main shop page
+   
     { "source": "/store", "destination": "/gallery.html", "permanent": true },
 
-    // Account/login (no need in static site)
+    
     { "source": "/my-account", "destination": "/", "permanent": true },
     { "source": "/my-account/:path*", "destination": "/", "permanent": true },
 
-    // Contact page
+    
     { "source": "/contact-us", "destination": "/locations.html", "permanent": true },
     { "source": "/contact", "destination": "/locations.html", "permanent": true },
 
-    // Old index/home variations
+    
     { "source": "/index.php", "destination": "/", "permanent": true },
     { "source": "/home", "destination": "/", "permanent": true },
 
-    // Catch query strings (e.g., ?p=123, ?product_id=...)
+    
     { 
       "source": "/:path*",
       "destination": "/gallery.html",
@@ -33,10 +33,11 @@
       "permanent": true
     },
 
-    // Safety catch-all for any other paths (e.g., random 503 pages) → home
+    
     { "source": "/:path*", "destination": "/", "permanent": true }
   ],
 
   "cleanUrls": true,
   "trailingSlash": false
 }
+
