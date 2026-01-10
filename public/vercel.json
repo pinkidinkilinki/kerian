@@ -1,0 +1,31 @@
+{
+  "redirects": [
+    { "source": "/index.php", "destination": "/" },
+    { "source": "/home", "destination": "/" },  
+
+    { "source": "/gallery", "destination": "/gallery.html" },
+    { "source": "/gallery/:path*", "destination": "/gallery.html" },  
+    { "source": "/category/:slug", "destination": "/gallery.html" },
+
+    { "source": "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug", "destination": "/gallery.html" },
+    { "source": "/:year(\\d{4})/:month(\\d{2})/:slug", "destination": "/gallery.html" },
+
+    { "source": "/:path*",
+      "destination": "/gallery.html",
+      "has": [{ "type": "query", "key": "p" }]  
+    },
+    { "source": "/:path*",
+      "destination": "/gallery.html",
+      "has": [{ "type": "query", "key": "page_id" }]  },
+
+    { "source": "/contact", "destination": "/locations.html" },  
+    { "source": "/faq", "destination": "/faq.html" },
+    { "source": "/locations", "destination": "/locations.html" },
+
+    { "source": "/wp-content/uploads/:path*", "destination": "https://kerian.bg/wp-content/uploads/:path*" } ,
+
+    { "source": "/:path*", "destination": "/" }  
+  ],
+  "cleanUrls": true,  
+  "trailingSlash": false  
+}
