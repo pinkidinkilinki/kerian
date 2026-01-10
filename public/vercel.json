@@ -1,31 +1,34 @@
 {
   "redirects": [
+    
+    { "source": "/store", "destination": "/gallery.html" },
+    { "source": "/produkt/:slug*", "destination": "/gallery.html" },
+    { "source": "/produkt-kategoriya/:slug*", "destination": "/gallery.html" },
+
+    
+    { "source": "/my-account", "destination": "/" },
+    { "source": "/my-account/:path*", "destination": "/" },
+    { "source": "/contact-us", "destination": "/locations.html" },  
+    { "source": "/contact", "destination": "/locations.html" },
+
+    
     { "source": "/index.php", "destination": "/" },
-    { "source": "/home", "destination": "/" },  
+    { "source": "/home", "destination": "/" },
 
-    { "source": "/gallery", "destination": "/gallery.html" },
-    { "source": "/gallery/:path*", "destination": "/gallery.html" },  
-    { "source": "/category/:slug", "destination": "/gallery.html" },
-
-    { "source": "/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug", "destination": "/gallery.html" },
-    { "source": "/:year(\\d{4})/:month(\\d{2})/:slug", "destination": "/gallery.html" },
-
+    
     { "source": "/:path*",
       "destination": "/gallery.html",
-      "has": [{ "type": "query", "key": "p" }]  
+      "has": [
+        { "type": "query", "key": "p" },
+        { "type": "query", "key": "product_id" },
+        { "type": "query", "key": "page_id" }
+      ]
     },
-    { "source": "/:path*",
-      "destination": "/gallery.html",
-      "has": [{ "type": "query", "key": "page_id" }]  },
 
-    { "source": "/contact", "destination": "/locations.html" },  
-    { "source": "/faq", "destination": "/faq.html" },
-    { "source": "/locations", "destination": "/locations.html" },
-
-    { "source": "/wp-content/uploads/:path*", "destination": "https://kerian.bg/wp-content/uploads/:path*" } ,
-
-    { "source": "/:path*", "destination": "/" }  
+    
+    { "source": "/:path*", "destination": "/" }
   ],
-  "cleanUrls": true,  
-  "trailingSlash": false  
+
+  "cleanUrls": true,
+  "trailingSlash": false
 }
