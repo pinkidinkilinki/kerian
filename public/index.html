@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Кериан • Торти София</title>
+  <link rel="icon" href="favicon.png" type="image/x-icon">
   <meta name="description" content="Детски, празнични, сватбени, ежедневни торти и торти с фотодекорация в София. Над 500 дизайна от 4.50 лв/парче.">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -61,28 +62,13 @@
   <a href="viber://chat?number=%2B359896229538" class="viber-btn">Поръчай във Viber</a>
 </section>
 
-    <section class="today">
-      <h2>Днес в кухнята</h2>
-      <div class="today-grid">
-        <div class="today-card">
-          <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765208929/1_wj7avy.webp" alt="Джунгла торта" loading="lazy">
-          <p>Джунгла • 16–30+ парчета</p>
-        </div>
-        <div class="today-card">
-          <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765208929/2_lu8amn.webp" alt="Аутобан торта" loading="lazy">
-          <p>Аутобан • 40–50+ парчета</p>
-        </div>
-        <div class="today-card">
-          <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614793/a003-1_zf9q0g.webp" alt="Автомобил торта" loading="lazy">
-          <p>Автомобил • 18 парчета</p>
-        </div>
-        <div class="today-card">
-          <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1765614793/a004-1_qhpmka.webp" alt="Аквариум торта" loading="lazy">
-          <p>Аквариум • 16 парчета</p>
-        </div>
-      </div>
-      <p class="today-note">Слотовете за утре се запълват бързо – пишете ни!</p>
-    </section>
+   <section class="today">
+  <h2>Днес в кухнята</h2>
+  <div class="today-grid" id="today-grid">
+    <!-- Filled by daily-script.js -->
+  </div>
+  <p class="today-note">Слотовете за утре се запълват бързо – пишете ни!</p>
+</section>
 
     <section class="quick-categories">
       <h2>Избери категория</h2>
@@ -94,11 +80,13 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 Кериан • София</p>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Кериан • София</p>
   </footer>
 
   <a href="viber://chat?number=%2B359896229538" class="floating-viber">💬</a>
 
-  <script src="script.js"></script>
+  
+  <script src="catalogue_daily.js"></script>
+<script src="daily-script.js"></script>
 </body>
 </html>
