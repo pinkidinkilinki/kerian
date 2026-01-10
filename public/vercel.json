@@ -6,7 +6,7 @@
     
     { "source": "/produkt-kategoriya/:slug*", "destination": "/gallery.html", "permanent": true },
 
-   
+    
     { "source": "/store", "destination": "/gallery.html", "permanent": true },
 
     
@@ -18,8 +18,10 @@
     { "source": "/contact", "destination": "/locations.html", "permanent": true },
 
     
+    { "source": "/size/:slug*", "destination": "/gallery.html", "permanent": true },
+
+    
     { "source": "/index.php", "destination": "/", "permanent": true },
-    { "source": "/home", "destination": "/", "permanent": true },
 
     
     { 
@@ -40,4 +42,3 @@
   "cleanUrls": true,
   "trailingSlash": false
 }
-
