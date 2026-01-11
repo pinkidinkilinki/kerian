@@ -1,16 +1,44 @@
+// Global variables (now properly declared)
+let allCakes = [];
+let visibleCount = 50; // Your original initial
+let increment = 50; // Your original
+let currentFilter = 'all';
+let currentSearch = '';
+let currentSort = 'default'; // Your original
+
+// Helper: Debounce for search (from recommended - prevents lag)
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Render the gallery grid (your base + error handling, ARIA from recommended)
 function renderGallery(cakesToShow) {
   allCakes = cakesToShow;
   const grid = document.getElementById('gallery-grid');
-  if (!grid) return;
+  if (!grid) {
+    console.error('Gallery grid element not found');
+    return;
+  }
 
   const toShow = allCakes.slice(0, visibleCount);
   grid.innerHTML = toShow.map(cake => `
-    <div class="cake-card" onclick="openLightbox('${cake.img}', '${cake.title}', '${cake.sizes}', ${cake.priceLeva}, ${cake.priceEuro}, '${cake.id}', '${cake.minPriceLeva || ''}', '${cake.minPriceEuro || ''}')">
+    <div class="cake-card" onclick="openLightbox('${cake.img}', '${cake.title.replace(/'/g, "\\'")}', '${cake.sizes}', ${cake.priceLeva}, ${cake.priceEuro}, '${cake.id}', '${cake.minPriceLeva || ''}', '${cake.minPriceEuro || ''}')">
       <img src="${cake.img}" alt="${cake.title}" loading="lazy">
       <h3>${cake.id} ${cake.title}</h3>
       <p>${cake.minPriceLeva} <span class="euro-price">или ${cake.minPriceEuro}</span> • ${cake.displayText}</p>
     </div>
   `).join('');
+
+  // Announce changes for screen readers (from recommended)
+  grid.setAttribute('aria-live', 'polite');
 
   const loadMoreBtn = document.getElementById('load-more-btn');
   if (loadMoreBtn) {
@@ -18,6 +46,7 @@ function renderGallery(cakesToShow) {
   }
 }
 
+// Open lightbox (your base + Viber tracking from recommended)
 function openLightbox(img, title, sizes, priceLeva, priceEuro, id, minPriceLeva, minPriceEuro) {
   const modal = document.createElement('div');
   modal.className = 'lightbox';
@@ -46,7 +75,9 @@ function openLightbox(img, title, sizes, priceLeva, priceEuro, id, minPriceLeva,
 
         <p><small>* Допълнителни такси могат да се приложат (напр. кутия, специални декорации)</small></p>
 
-        <a href="viber://chat?number=%2B359896229538&draft=Здравейте!%20Искам%20торта%20${id}%20${encodeURIComponent(title)}%20(${sizes}%20парчета)" 
+        <!-- Viber button with tracking - location includes cake ID -->
+        <a href="viber://chat?number=%2B359896229538&draft=Здравейте!%20Искам%20торта%20${id}%20${encodeURIComponent(title)}%20(${sizes}%20парчета)\" 
+           onclick="trackViber('lightbox-${id}')"
            class="lightbox-viber-cta">
           Поръчай сега във Viber 💬
         </a>
@@ -69,14 +100,6 @@ function openLightbox(img, title, sizes, priceLeva, priceEuro, id, minPriceLeva,
     document.body.classList.remove('lightbox-open');
   });
 }
-
-// Filtering & sorting variables
-let currentFilter = 'all';
-let currentSort = 'default';
-let currentSearch = '';
-let visibleCount = 50;
-const increment = 50;
-let allCakes = [];
 
 // E-Catalogue: 38 pages - NO CODE RANGE
 function renderEdibleCatalogue() {
