@@ -6,69 +6,135 @@
   <title>Кериан • Торти София</title>
   <link rel="icon" href="favicon.png" type="image/x-icon">
   <meta name="description" content="Детски, празнични, сватбени, ежедневни торти и торти с фотодекорация в София. Над 500 дизайна от 4.50 лв/парче.">
+
+  <!-- Open Graph / Social Sharing (important for Viber/Facebook shares) -->
+  <meta property="og:title" content="Кериан • Торти София">
+  <meta property="og:description" content="Детски, празнични, сватбени и торти с фотодекорация. Над 500 дизайна от 4.50 лв/парче. Поръчай лесно във Viber!">
+  <meta property="og:image" content="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1767428370/Kerian_bkauwv.webp">
+  <meta property="og:image:alt" content="Празнична торта от Кериан">
+  <meta property="og:url" content="https://kerian.bg/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="bg_BG">
+
+  <!-- Faster Cloudinary loading -->
+  <link rel="preconnect" href="https://res.cloudinary.com">
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Structured Data - Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Сладкарници Кериан",
+    "image": "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1767428370/Kerian_bkauwv.webp",
+    "telephone": ["+359896799620", "+359896229538"],
+    "email": "kerian1@gmx.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Търговска X бл. 417",
+      "addressLocality": "София",
+      "addressRegion": "Надежда 4",
+      "postalCode": "1231",
+      "addressCountry": "BG"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "07:00",
+      "closes": "20:00"
+    },
+    "priceRange": "$$",
+    "url": "https://kerian.bg"
+  }
+  </script>
+
+  <!-- Google Analytics 4 - Fully activated with your ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SJGXNF9EG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4SJGXNF9EG');
+  </script>
+
+  <!-- Track Viber clicks -->
+  <script>
+    function trackViber(location) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'viber_click', {
+          'location': location,
+          'value': 1
+        });
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
-  <img src="logo_kerian_sofia.png" alt="Кериан лого" class="logo">
-  
-  <div class="contact-info">
-  ☎ <a href="tel:+359896799620">0896 799 620</a> • <a href="tel:+359896229538">0896 229 538</a><br>
-  <a href="mailto:kerian1@gmx.com">kerian1@gmx.com</a><br>
-  <a href="https://maps.app.goo.gl/xvJnZaDEq6ZDZNna8">София, Надежда 4, ул. Търговска X ул. Днепър</a>
-</div>
-  
-  <nav>
-    <ul>
-      <li><a href="index.html">Начало</a></li>
-      <li><a href="gallery.html">Каталог</a></li>
-      <li><a href="locations.html">Локации</a></li>
-      <li><a href="faq.html">Въпроси</a></li>
-    </ul>
-  </nav>
-</header>
-<section class="categories-showcase">
-  <h2>Нашите категории</h2>
-  <div class="showcase-grid">
-    <a href="gallery.html#detski" class="showcase-item">
-      <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766816471/Artboard-1_t5ijjz.webp" alt="Детски торти" loading="lazy">
-      <div class="overlay">Детски торти</div>
-    </a>
-    <a href="gallery.html#praznichni" class="showcase-item">
-      <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766816471/post3_flndgv.webp" alt="Празнични торти" loading="lazy">
-      <div class="overlay">Празнични торти</div>
-    </a>
-    <a href="gallery.html#fotodekoratsiya" class="showcase-item">
-      <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766816471/post5_tzvkyc.webp" alt="Торти с фотодекорация" loading="lazy">
-      <div class="overlay">С фотодекорация</div>
-    </a>
-    <a href="gallery.html#svatbeni" class="showcase-item">
-      <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766816471/post6_yhoq5w.webp" alt="Сватбени торти" loading="lazy">
-      <div class="overlay">Сватбени торти</div>
-    </a>
-  </div>
-</section>
-<main>
-    <section class="hero">
-  
-  <p class="hero-categories">
-    <a href="gallery.html#detski">Детски</a> • 
-    <a href="gallery.html#praznichni">Празнични</a> • 
-    <a href="gallery.html#fotodekoratsiya">С фотодекорация</a> • 
-    <a href="gallery.html#svatbeni">Сватбени</a> • 
-    <br>
-    Над 500 дизайна • От 2.00 евро/парче • София
-  </p>
-  <a href="viber://chat?number=%2B359896229538" class="viber-btn">Поръчай във Viber</a>
-</section>
+    <img src="logo_kerian_sofia.png" alt="Кериан лого" class="logo">
+    
+    <div class="contact-info">
+      ☎ <a href="tel:+359896799620">0896 799 620</a> • <a href="tel:+359896229538">0896 229 538</a><br>
+      <a href="mailto:kerian1@gmx.com">kerian1@gmx.com</a><br>
+      <a href="https://maps.app.goo.gl/xvJnZaDEq6ZDZNna8">София, Надежда 4, ул. Търговска X ул. Днепър</a>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="gallery.html">Каталог</a></li>
+        <li><a href="locations.html">Локации</a></li>
+        <li><a href="faq.html">Въпроси</a></li>
+      </ul>
+    </nav>
+  </header>
 
-   <section class="today">
-  <h2>Днес в кухнята</h2>
-  <div class="today-grid" id="today-grid">
-    <!-- Filled by daily-script.js -->
-  </div>
-  <p class="today-note">Слотовете за утре се запълват бързо – пишете ни!</p>
-</section>
+  <section class="categories-showcase">
+    <h2>Нашите категории</h2>
+    <div class="showcase-grid">
+      <a href="gallery.html#detski" class="showcase-item">
+        <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766816471/Artboard-1_t5ijjz.webp" alt="Детски торти" loading="lazy">
+        <div class="overlay">Детски торти</div>
+      </a>
+      <a href="gallery.html#praznichni" class="showcase-item">
+        <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766816471/post3_flndgv.webp" alt="Празнични торти" loading="lazy">
+        <div class="overlay">Празнични торти</div>
+      </a>
+      <a href="gallery.html#fotodekoratsiya" class="showcase-item">
+        <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766816471/post5_tzvkyc.webp" alt="Торти с фотодекорация" loading="lazy">
+        <div class="overlay">С фотодекорация</div>
+      </a>
+      <a href="gallery.html#svatbeni" class="showcase-item">
+        <img src="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1766816471/post6_yhoq5w.webp" alt="Сватбени торти" loading="lazy">
+        <div class="overlay">Сватбени торти</div>
+      </a>
+    </div>
+  </section>
+
+  <main>
+    <section class="hero">
+      <p class="hero-categories">
+        <a href="gallery.html#detski">Детски</a> • 
+        <a href="gallery.html#praznichni">Празнични</a> • 
+        <a href="gallery.html#fotodekoratsiya">С фотодекорация</a> • 
+        <a href="gallery.html#svatbeni">Сватбени</a> • 
+        <br>
+        Над 500 дизайна • От 2.00 евро/парче • София
+      </p>
+      <!-- Viber tracking added here -->
+      <a href="viber://chat?number=%2B359896229538" 
+         onclick="trackViber('hero')"
+         class="viber-btn">Поръчай във Viber</a>
+    </section>
+
+    <section class="today">
+      <h2>Правени торти 2026 година</h2>
+      <div class="today-grid" id="today-grid">
+        <!-- Filled by daily-script.js -->
+      </div>
+      <p class="today-note">Слотовете за утре се запълват бързо – пишете ни!</p>
+    </section>
 
     <section class="quick-categories">
       <h2>Избери категория</h2>
@@ -83,10 +149,12 @@
     <p>&copy; <script>document.write(new Date().getFullYear())</script> Кериан • София</p>
   </footer>
 
-  <a href="viber://chat?number=%2B359896229538" class="floating-viber">💬</a>
+  <!-- Floating Viber with tracking -->
+  <a href="viber://chat?number=%2B359896229538" 
+     onclick="trackViber('floating')"
+     class="floating-viber">💬</a>
 
-  
   <script src="catalogue_daily.js"></script>
-<script src="daily-script.js"></script>
+  <script src="daily-script.js"></script>
 </body>
 </html>
