@@ -155,8 +155,8 @@
 </button>
     </div>
 
-    <!-- E-Catalogue Section - 48 pages -->
-    <section class="edible-catalogue" id="edible-catalogue">
+   <!-- E-Catalogue Section - 48 pages (hidden by default, shown via JS) -->
+    <section class="edible-catalogue" id="edible-catalogue" style="display: none;">
       <h2 style="text-align:center; margin:3rem 0 2rem;">Каталог с готови снимки за декорация</h2>
       <p style="text-align:center; max-width:800px; margin:0 auto 2rem; font-size:1.1rem;">
         Прелиствайте страниците от физическия ни каталог (точно както в магазина).<br>
@@ -165,8 +165,7 @@
       <div class="page-grid" id="page-grid"></div>
 
       <div style="text-align:center; margin:3rem 0;">
-        <!-- Main E-catalogue order button with tracking -->
-        <a href="viber://chat?number=%2B359896229538&draft=Здравейте! Искам снимка от каталога (напр. E057) на шаблон F00..." 
+        <a href="viber://chat?number=%2B359896229538&draft=Здравейте! Искам снимка от каталога (напр. E057) на шаблон F001" 
            onclick="trackViber('e-catalogue')"
            class="viber-order-btn">
           Поръчай избрана снимка от каталога във Viber 💬
@@ -174,9 +173,9 @@
         <p style="margin-top:1rem;">
           Или <a href="viber://chat?number=%2B359896229538&draft=Здравейте! Искам моя собствена снимка за торта"
                  onclick="trackViber('custom-photo')">изпратете своя снимка</a>
+        </p>
       </div>
     </section>
-
   </main>
 
   <footer>
