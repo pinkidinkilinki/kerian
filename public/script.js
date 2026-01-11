@@ -235,8 +235,14 @@ function applyFiltersAndSort() {
     photoNote.style.display = currentFilter === 'fotodekoratsiya' ? 'block' : 'none';
   }
 
-  if (currentFilter === 'fotodekoratsiya') {
-    renderEdibleCatalogue();
+  // Show/hide E-Catalogue only for fotodekoratsiya category
+  const edibleCatalogue = document.getElementById('edible-catalogue');
+  if (edibleCatalogue) {
+    edibleCatalogue.style.display = currentFilter === 'fotodekoratsiya' ? 'block' : 'none';
+    
+    if (currentFilter === 'fotodekoratsiya') {
+      renderEdibleCatalogue();
+    }
   }
 }
 
