@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta name="description" content="Магазини на Кериан в София – адреси, телефони, работно време. ж.к. Надежда 4 и ж.к. Лев Толстой.">
-
-<!-- Open Graph / Social Sharing -->
-<meta property="og:title" content="Локации и магазини • Кериан">
-<meta property="og:description" content="Два магазина в София: ж.к. Надежда 4 (ул. Търговска) и ж.к. Лев Толстой. Работим всеки ден от 7:00.">
-<meta property="og:image" content="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1767428370/Kerian_bkauwv.webp">
-<meta property="og:image:alt" content="Магазин Кериан в Надежда 4">
-<meta property="og:url" content="https://kerian.bg/locations.html">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="bg_BG">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Локации • Кериан</title>
   <link rel="icon" href="favicon.png" type="image/x-icon">
+  <meta name="description" content="Магазини на Кериан в София – адреси, телефони, работно време. ж.к. Надежда 4 и ж.к. Лев Толстой.">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Локации и магазини • Кериан">
+  <meta property="og:description" content="Два магазина в София: ж.к. Надежда 4 (ул. Търговска) и ж.к. Лев Толстой. Работим всеки ден от 7:00.">
+  <meta property="og:image" content="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1767428370/Kerian_bkauwv.webp">
+  <meta property="og:image:alt" content="Магазин Кериан в Надежда 4">
+  <meta property="og:url" content="https://kerian.bg/locations.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="bg_BG">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://kerian.bg/locations.html">
+
+  <!-- Faster Cloudinary loading -->
+  <link rel="preconnect" href="https://res.cloudinary.com">
+
   <link rel="stylesheet" href="style.css">
+
   <style>
     .shop img {
       max-width: 100%;
@@ -42,16 +50,84 @@
       transform: translateY(-2px);
     }
   </style>
+
+  <!-- Structured Data - Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Сладкарници Кериан",
+    "image": "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1767428370/Kerian_bkauwv.webp",
+    "telephone": ["+359896799620", "+359896229538"],
+    "email": "kerian1@gmx.com",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. Търговска X бл. 417",
+        "addressLocality": "София",
+        "addressRegion": "Надежда 4",
+        "postalCode": "1231",
+        "addressCountry": "BG"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "ж.к. Лев Толстой 44",
+        "addressLocality": "София",
+        "postalCode": "1220",
+        "addressCountry": "BG"
+      }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "name": "Надежда 4",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "07:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "name": "Лев Толстой",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "07:00",
+        "closes": "18:30"
+      }
+    ],
+    "priceRange": "$$",
+    "url": "https://kerian.bg"
+  }
+  </script>
+
+  <!-- Google Analytics 4 - Fully activated with your ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SJGXNF9EG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4SJGXNF9EG');
+  </script>
+
+  <!-- Track Viber clicks -->
+  <script>
+    function trackViber(location) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'viber_click', {
+          'location': location,
+          'value': 1
+        });
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
     <img src="logo_kerian_sofia.png" alt="Кериан лого" class="logo">
     <nav>
       <div class="contact-info">
-  ☎ <a href="tel:+359896799620">0896 799 620</a> • <a href="tel:+359896229538">0896 229 538</a><br>
-  <a href="mailto:kerian1@gmx.com">kerian1@gmx.com</a><br>
-  <a href="https://maps.app.goo.gl/xvJnZaDEq6ZDZNna8">София, Надежда 4, ул. Търговска X ул. Днепър</a>
-</div>
+        ☎ <a href="tel:+359896799620">0896 799 620</a> • <a href="tel:+359896229538">0896 229 538</a><br>
+        <a href="mailto:kerian1@gmx.com">kerian1@gmx.com</a><br>
+        <a href="https://maps.app.goo.gl/xvJnZaDEq6ZDZNna8">София, Надежда 4, ул. Търговска X ул. Днепър</a>
+      </div>
       <ul>
         <li><a href="index.html">Начало</a></li>
         <li><a href="gallery.html">Каталог</a></li>
@@ -89,6 +165,9 @@
     <p>&copy; <script>document.write(new Date().getFullYear())</script> Кериан • София</p>
   </footer>
 
-  <a href="viber://chat?number=%2B359896229538" class="floating-viber">💬</a>
+  <!-- Floating Viber with tracking -->
+  <a href="viber://chat?number=%2B359896229538" 
+     onclick="trackViber('floating')"
+     class="floating-viber">💬</a>
 </body>
 </html>
