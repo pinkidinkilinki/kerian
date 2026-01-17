@@ -9,16 +9,18 @@ function renderDailyCakes() {
   }
 
   grid.innerHTML = dailyCakes.map(cake => `
-    <div class="today-card" onclick="openDailyLightbox('${cake.img}', '${cake.title}', '${cake.sizes}', '${cake.displayPrice}', '${cake.id}')">
-      <img src="${cake.img}" alt="${cake.title}" loading="lazy">
-      <p><strong>${cake.id}</strong> ${cake.title}</p>
-      <p>${cake.sizes} • ${cake.displayPrice}</p>
-      <a href="viber://chat?number=%2B359896229538&draft=Здравейте!%20Искам%20днешната%20торта%20${cake.id}%20${encodeURIComponent(cake.title)}" 
-         class="viber-btn small" style="margin-top:0.5rem; font-size:0.9rem; padding:0.6rem 1rem;">
-        Поръчай 💬
-      </a>
-    </div>
-  `).join('');
+  <div class="today-card" onclick="openDailyLightbox('${cake.img}', '${cake.title}', '${cake.sizes}', '${cake.displayPrice}', '${cake.id}')">
+    <img src="${cake.img}" 
+         alt="Торта ${cake.title} Сладкарници Кериан София" 
+         loading="lazy">
+    <p><strong>${cake.id}</strong> ${cake.title}</p>
+    <p>${cake.sizes} • ${cake.displayPrice}</p>
+    <a href="viber://chat?number=%2B359896229538&draft=Здравейте!%20Искам%20днешната%20торта%20${cake.id}%20${encodeURIComponent(cake.title)}" 
+       class="viber-btn small" style="margin-top:0.5rem; font-size:0.9rem; padding:0.6rem 1rem;">
+      Поръчай 💬
+    </a>
+  </div>
+`).join('');
 }
 
 // Simplified lightbox for daily cakes (no full price calc needed)
@@ -34,7 +36,7 @@ function openDailyLightbox(img, title, sizes, displayPrice, id) {
         </svg>
         Затвори
       </button>
-      <img src="${img}" alt="${title}">
+      <img src="${img}" alt="Торта ${title} Сладкарници Кериан София" loading="lazy">
       <div class="lightbox-info">
         <h2>${title}</h2>
         <p><strong>Код:</strong> ${id}</p>
