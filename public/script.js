@@ -31,7 +31,7 @@ function renderGallery(cakesToShow) {
   const toShow = allCakes.slice(0, visibleCount);
   grid.innerHTML = toShow.map(cake => `
     <div class="cake-card" onclick="openLightbox('${cake.img}', '${cake.title.replace(/'/g, "\\'")}', '${cake.sizes}', ${cake.priceLeva}, ${cake.priceEuro}, '${cake.id}', '${cake.minPriceLeva || ''}', '${cake.minPriceEuro || ''}')">
-      <img src="${cake.img}" alt="${cake.title}" loading="lazy">
+      <img src="${cake.img}" alt="Торта ${cake.title} Сладкарници Кериан София" loading="lazy">
       <h3>${cake.id} ${cake.title}</h3>
       <p>${cake.minPriceLeva} <span class="euro-price">или ${cake.minPriceEuro}</span> • ${cake.displayText}</p>
     </div>
@@ -60,7 +60,7 @@ function openLightbox(img, title, sizes, priceLeva, priceEuro, id, minPriceLeva,
         Затвори
       </button>
 
-      <img src="${img}" alt="${title}">
+      <img src="${img}" alt="Торта ${title} Сладкарници Кериан София" loading="lazy">
       <div class="lightbox-info">
         <h2>${title}</h2>
         <p><strong>Код:</strong> ${id}</p>
