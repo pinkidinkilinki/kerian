@@ -689,6 +689,7 @@ footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
   .hero { padding-top: 4rem; padding-bottom: 4rem; }
 
   .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+  #today-grid   { grid-template-columns: repeat(4, 1fr); }
 
   .logo {
     position: absolute;
