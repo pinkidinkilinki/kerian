@@ -1,812 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@400;500;600&display=swap');
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Често задавани въпроси • Кериан</title>
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <meta name="description" content="Често задавани въпроси за поръчка на торти от Кериан – как да поръчам, пълнежи, вземане, цени. София.">
 
-/* Global resets and base styles */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #fff;
-}
-img { max-width: 100%; height: auto; display: block; }
-a { color: #8B4513; text-decoration: none; }
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Често задавани въпроси • Кериан">
+  <meta property="og:description" content="Как да поръчам торта? Колко време предварително? Какви пълнежи има? Всичко за поръчките в Кериан София.">
+  <meta property="og:image" content="https://res.cloudinary.com/dsn8jkh0o/image/upload/v1767428370/Kerian_bkauwv.webp">
+  <meta property="og:image:alt" content="Празнична торта от Кериан">
+  <meta property="og:url" content="https://kerian.bg/faq.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="bg_BG">
 
-/* Headings */
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: #8B4513;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-h1 { font-size: 2.6rem; }
-h2 { font-size: 2.2rem; }
-h3 { font-size: 1.6rem; }
+  <!-- Canonical -->
+  <link rel="canonical" href="https://kerian.bg/faq.html">
 
-/* Text improvements */
-p, .today-note, .gallery-intro, .cat-link, details summary {
-  font-size: 1.1rem;
-  color: #555;
-  font-weight: 500;
-}
-.cake-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: #8B4513;
-  margin: 0.5rem 0;
-}
-.cake-card p {
-  font-size: 1rem;
-  color: #666;
-}
+  <!-- Faster Cloudinary loading (optional here, but added for consistency) -->
+  <link rel="preconnect" href="https://res.cloudinary.com">
 
-/* Header */
-header {
-  padding: 1rem;
-  background: #8B4513;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 10;
-  gap: 0.5rem;
-}
-.logo { height: 60px; flex-shrink: 0; }
-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-nav a {
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-}
+  <link rel="stylesheet" href="style.css">
 
-/* Contact info - hidden on mobile, visible and centered on desktop */
-.contact-info {
-  display: none; /* Hidden by default (mobile) */
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 50%; /* Center vertically inside header */
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: white;
-  text-align: center;
-  line-height: 1.4;
-  white-space: normal;
-  max-width: 90%;
-  padding: 0;
-}
-
-.contact-info a {
-  color: white;
-  text-decoration: underline;
-}
-
-.contact-info a:hover {
-  text-decoration: none;
-}
-
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 1rem 0.1rem;
-  background: #fff9f5;
-  position: relative;
-}
-.hero h1 { font-size: 2.2rem; margin-bottom: 1rem; }
-
-/* Viber buttons */
-.viber-btn, .viber-order-btn {
-  display: inline-block;
-  background: #7360F2;
-  color: white;
-  border-radius: 50px;
-  font-weight: 600;
-  text-align: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(115,96,242,0.3);
-}
-.viber-btn {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  margin-top: 1rem;
-}
-.viber-order-btn {
-  display: block;
-  max-width: 90%;
-  margin: 1.5rem auto 2rem;
-  padding: 1.2rem 1.5rem;
-  font-size: 1.1rem;
-}
-.viber-btn:hover, .viber-order-btn:hover,
-.viber-btn:active, .viber-order-btn:active {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(115,96,242,0.4);
-}
-
-/* Today section */
-.today { padding: 2rem 1rem; text-align: center; }
-.today-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
-.today-card img { border-radius: 12px; }
-.today-note { margin-top: 1.5rem; font-weight: bold; }
-
-/* Quick categories */
-.quick-categories { padding: 2rem 1rem; text-align: center; }
-.cat-link {
-  display: block;
-  margin: 0.5rem auto;
-  padding: 1rem;
-  max-width: 300px;
-  background: #f0f0f0;
-  border-radius: 12px;
-  font-weight: bold;
-}
-/* Филтри */
-.filters { 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 0.5rem; 
-  padding: 1rem; 
-}
-.filters button { 
-  padding: 0.6rem 1rem; 
-  border: none; 
-  border-radius: 30px; 
-  background: #eee; 
-  cursor: pointer; 
-}
-.filters button.active { 
-  background: #8B4513; 
-  color: white; 
-}
-/* Gallery */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-.cake-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  padding: 0.5rem;
-}
-.cake-card img { border-radius: 8px; }
-
-.photo-note {
-  display: none;
-  text-align: center;
-  padding: 1rem;
-  background: #fff9c4;
-  margin: 1rem;
-  border-radius: 8px;
-  font-style: italic;
-}
-
-/* Lightbox – updated for narrow, centered, transparent background */
-.lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.75); /* Semi-transparent background */
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  z-index: 1000;
-  overflow-y: auto;
-  padding: 1rem 0;
-}
-
-.lightbox-content {
-  max-width: 95%;
-  width: 380px;                /* Narrow and comfortable */
-  margin: 2rem auto;
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  animation: fadeInScale 0.3s ease;
-}
-
-.lightbox img {
-  max-width: 100%;
-  max-height: 60vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  border-radius: 12px 12px 0 0;
-}
-
-.lightbox-info {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 2.8rem;
-  color: white;
-  background: rgba(0,0,0,0.5);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-}
-
-/* Prevent background scroll */
-body.lightbox-open {
-  overflow: hidden;
-}
-
-/* Fade-in animation */
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* Locations / FAQ */
-.shop { margin: 2rem 1rem; padding: 1rem; background: #f9f9f9; border-radius: 12px; }
-.map-link { display: inline-block; margin-top: 0.5rem; color: #7360F2; font-weight: bold; }
-.pickup-note { text-align: center; font-style: italic; margin: 2rem; }
-details { margin: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
-summary { cursor: pointer; font-weight: bold; padding: 1rem 0; }
-
-/* Footer */
-footer { text-align: center; padding: 1.5rem; background: #333; color: white; }
-
-/* Floating Viber */
-.floating-viber {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  background: #7360F2;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-/* Fillings accordion */
-.fillings-accordion {
-  margin: 2rem 1rem;
-  background: #fff9f5;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.fillings-accordion summary {
-  padding: 1.2rem 1.5rem;
-  background: #8B4513;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-}
-.fillings-accordion[open] summary { background: #A0522D; }
-.fillings-content {
-  padding: 1.5rem;
-  text-align: left;
-  background: white;
-}
-.fillings-content ol {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-  line-height: 1.8;
-  font-size: 1.1rem;
-}
-.fillings-content p {
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-/* Categories showcase (index page) */
-.categories-showcase {
-  padding: 2rem 1rem;
-  text-align: center;
-  background: #fff9f5;
-}
-.categories-showcase h2 { margin-bottom: 1.5rem; color: #8B4513; }
-.showcase-grid {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  padding: 0.5rem 0;
-  scrollbar-width: none;
-}
-.showcase-grid::-webkit-scrollbar { display: none; }
-.showcase-item {
-  position: relative;
-  flex: 0 0 80%;
-  max-width: 300px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-.showcase-item:hover { transform: scale(1.05); }
-.showcase-item img { width: 100%; height: 280px; object-fit: cover; }
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(139,69,19,0.8));
-  color: white;
-  padding: 1.5rem 1rem 1rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-  font-family: 'Playfair Display', serif;
-}
-.categories-showcase .showcase-item img {
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15)) drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-  transition: all 0.3s ease;
-}
-
-.categories-showcase .showcase-item:hover img {
-  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2)) drop-shadow(0 8px 12px rgba(0,0,0,0.15));
-  transform: translateY(-5px);
-}
-.categories-showcase {
-  background: #fdf8f0; /* лек кремав, като твоя hero */
-  /* Или по-топъл: #fdf8f0 */
-  /* Или с текстура: */
-  /* background: url('https://res.cloudinary.com/.../your-cream-texture.webp') repeat; */
-  padding: 2rem 1rem;
-  border-radius: 12px;
-  margin: 2rem 0;
-}
-
-.gallery-header-controls {
-  padding: 1rem;
-  margin: 1rem 1rem 2rem;
-  background: #fff9f5;
-  display: flex;
-  justify-content: center;
-}
-
-.central-controls-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.8rem;
-  max-width: 100%;
-}
-
-.control-item {
-  padding: 0.6rem 1rem;
-  border: 1.5px solid #ccc;
-  border-radius: 50px;
-  font-size: 0.95rem;
-  background: white;
-  color: #444;
-  font-weight: 500;
-  min-height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.control-item:hover {
-  border-color: #8B4513;
-  background: #fff9f5;
-  transform: translateY(-1px);
-}
-
-.filters button.active,
-.control-item:active {
-  background: #8B4513;
-  color: white;
-  border-color: #8B4513;
-  box-shadow: 0 4px 10px rgba(139,69,19,0.2);
-}
-/* Specific widths */
-.search-input { width: 100%; max-width: 260px; }
-.sort-select { min-width: 150px; }
-
-/* Euro price highlight */
-.euro-price {
-  color: #28a745;
-  font-weight: 600;
-}
-
-/* Lightbox Viber CTA */
-.lightbox-viber-cta {
-  display: block;
-  width: 90%;
-  max-width: 400px;
-  margin: 2rem auto 1.5rem;
-  padding: 1.2rem;
-  background: #7360F2;
-  color: white;
-  font-size: 1.3rem;
-  font-weight: 600;
-  text-align: center;
-  border-radius: 50px;
-  box-shadow: 0 6px 16px rgba(115, 96, 242, 0.4);
-  transition: all 0.3s ease;
-}
-
-.lightbox-viber-cta:hover,
-.lightbox-viber-cta:active {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(115, 96, 242, 0.5);
-  background: #5a4fcf;
-}
-.shop img {
-  max-width: 100%;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-.shop .note {
-  font-style: italic;
-  color: #888;
-  margin-bottom: 1rem;
-}
-.map-link {
-  display: inline-block;
-  background: #8B4513;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  font-weight: 600;
-  margin-top: 1rem;
-  transition: all 0.2s ease;
-}
-.map-link:hover {
-  background: #A0522D;
-}
-.lightbox-close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 16px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 10;
-  transition: all 0.2s ease;
-}
-
-.lightbox-close-btn:hover {
-  background: rgba(0, 0, 0, 0.9);
-  transform: scale(1.05);
-}
-
-.lightbox-close-btn svg {
-  width: 20px;
-  height: 20px;
-}
-/* E-Catalogue Pages */
-.page-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-.page-card {
-  cursor: pointer;
-  text-align: center;
-  padding: 1rem;
-  border: 2px solid #f0f0f0;
-  border-radius: 16px;
-  transition: all 0.3s ease;
-  background: white;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-.page-card:hover {
-  border-color: #8B4513;
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-.page-card img {
-  border-radius: 12px;
-  margin-bottom: 0.8rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-.page-card p {
-  font-weight: 600;
-  color: #8B4513;
-}
-.page-card small {
-  display: block;
-  color: #666;
-  margin-top: 0.3rem;
-}
-
-/* Large page view in lightbox */
-.page-lightbox img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-/* Mobile-specific optimizations */
-@media (max-width: 767px) {
-  /* Smaller header on mobile - stays in one row */
-  header {
-    padding: 0.5rem 1rem;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
+  <!-- Structured Data - Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Сладкарници Кериан",
+    "image": "https://res.cloudinary.com/dsn8jkh0o/image/upload/v1767428370/Kerian_bkauwv.webp",
+    "telephone": ["+359896799620", "+359896229538"],
+    "email": "kerian1@gmx.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Търговска X бл. 417",
+      "addressLocality": "София",
+      "addressRegion": "Надежда 4",
+      "postalCode": "1231",
+      "addressCountry": "BG"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "07:00",
+      "closes": "20:00"
+    },
+    "priceRange": "$$",
+    "url": "https://kerian.bg"
   }
+  </script>
 
-  .logo {
-    height: 45px; /* Was 60px - smaller logo */
-  }
+  <!-- Google Analytics 4 - Fully activated with your ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SJGXNF9EG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4SJGXNF9EG');
+  </script>
 
-  nav ul {
-    gap: 0.8rem;
-  }
+  <!-- Track Viber clicks -->
+  <script>
+    function trackViber(location) {
+      if (typeof gtag === 'function') {
+        gtag('event', 'viber_click', {
+          'location': location,
+          'value': 1
+        });
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo_kerian_sofia.png" alt="Кериан лого" class="logo">
+    <nav>
+      <div class="contact-info">
+        ☎ <a href="tel:+359896799620">0896 799 620</a> • <a href="tel:+359896229538">0896 229 538</a><br>
+        <a href="mailto:kerian1@gmx.com">kerian1@gmx.com</a><br>
+        <a href="https://maps.app.goo.gl/xvJnZaDEq6ZDZNna8">София, Надежда 4, ул. Търговска X ул. Днепър</a>
+      </div>
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="gallery.html">Каталог</a></li>
+        <li><a href="locations.html">Локации</a></li>
+        <li><a href="faq.html">Въпроси</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  nav a {
-    font-size: 0.9rem; /* Smaller nav text */
-  }
+  <main>
+    <h1>Често задавани въпроси</h1>
 
-  /* Hide contact info on mobile (as you wanted) */
-  .contact-info {
-    display: none !important;
-  }
+    <details>
+      <summary>Как да поръчам торта?</summary>
+      <p>Изберете дизайн от каталога → пишете ни в Вайбър с кода (напр. А001), желания размер и дата на вземане или по телефона. Потвърждаваме в рамките на 2–4 часа.</p>
+    </details>
 
-  /* Reduce vertical spacing above gallery */
-  h1 {
-    font-size: 2rem;
-    margin: 1rem 0;
-  }
+    <details>
+      <summary>Колко време предварително трябва да поръчам?</summary>
+      <p>За стандартни дизайни – 1–3 дни. За сложни или големи торти – 3–7 дни. За сватбени – 7–14 дни. По-добре е да поръчате по-рано, за да осигурим слот.</p>
+    </details>
 
-  .viber-order-btn {
-    font-size: 1rem;
-    padding: 0.9rem 1.5rem;
-    margin: 1rem 0;
-  }
+    <details>
+      <summary>Какви пълнежи има?</summary>
+      <details>
+        <summary>Кликнете за списък</summary>
+        <div class="fillings-content">
+          <ol>
+            <li>Шоколадов крем, вишнево сладко, течен шоколад и какаови пандишпанови платки.</li>
+            <li>Завладяваща комбинация от шоколадов крем, ягодов крем, какаови платки и течен шоколад.</li>
+            <li>Шоколадов крем, пресен плод банан, течен шоколад и какаови платки.</li>
+            <li>Млечно-ванилов крем, боровинково сладко и вкусни пандишпанови блатове.</li>
+            <li>Карамелен крем по домашна рецепта в комбинация с фъстъчен крокант и пандишпанови платки.</li>
+            <li>Баварски крем, бял шоколад, пандишпанови блатове и парченца праскови.</li>
+            <li>Ягодов мус в комбинация с бисквитени блатове и лек мока вкус.</li>
+            <li>Ванилов крем “Мечта” в комбинация с пандишпанови платки и сладко по избор (подходящ за детски заведения).</li>
+            <li>По преценка на Кериан (нашата специална селекция за деня).</li>
+          </ol>
+        </div>
+      </details>
+    </details>
 
-  .fillings-accordion {
-    margin: 1rem 0;
-  }
+    <details>
+      <summary>Предлагате ли сертификат за детски градини, училища и заведения?</summary>
+      <p>Да. Само кажете при поръчка или вземане на тортата.</p>
+    </details>
 
-  .fillings-accordion summary {
-    font-size: 1rem;
-    padding: 0.8rem;
-  }
+    <details>
+      <summary>Какво е торта с фотодекорация?</summary>
+      <p>Печатаме избрано от вас изображение (филми, герои, снимки, певци) върху ядивна хартия. Изпратете ни изображението чрез Вайбър.</p>
+    </details>
 
-  .gallery-header-controls {
-    padding: 1rem;
-    margin: 1rem 0;
-  }
+    <details>
+      <summary>Има ли отстъпки?</summary>
+      <p>Засега не.</p>
+    </details>
+    <details>
+      <summary>Колко големи са парчетата?</summary>
+      <p>Между 130 - 180 грама, според пълнежа. Не са малки.</p>
+    </details>
+    <details>
+      <summary>Тортата ще изглежда ли по същия начин?</summary>
+      <p>Всички торти се правят ръчно и ще има малки разлики.</p>
+    </details>
+    <details>
+      <summary>Тортите имат ли алергени?</summary>
+      <p>Да. Моля да не консумират от хора с алергии.</p>
+    </details>
+    <p>     Внимание украсата може да се състои от малки фигурки. Деца по 13 години, да се наблюдават.</p>
+    <br>
+    <p>     Други въпроси или препоръки - пишете ни на Вайбър.</p>
+  </main>
 
-  .central-controls-group {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
+  <footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Кериан • София</p>
+  </footer>
 
-  .search-input {
-    width: 100%;
-  }
-
-  .sort-select {
-    width: 100%;
-  }
-
-  .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-  }
-
-  .filters button {
-    font-size: 0.9rem;
-    padding: 0.6rem 1rem;
-  }
-
-  .photo-note {
-    font-size: 1rem;
-    margin: 1rem 0;
-    padding: 0 1rem;
-  }
-
-  /* Gallery cards stay large and readable - no change needed */
-  /* But reduce top margin so images appear sooner */
-  #gallery-grid {
-    margin-top: 0.5rem;
-  }
-
-  .load-more-container {
-    padding: 1.5rem 1rem;
-  }
-
-  /* Edible catalogue section - smaller on mobile */
-  .edible-catalogue h2 {
-    font-size: 1.8rem;
-    margin: 2rem 0 1rem;
-  }
-
-  .page-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-  }
-
-  .page-card p {
-    font-size: 0.9rem;
-  }
-  .viber-order-btn:first-of-type {
-    display: none; /* Hide the big top Viber button on mobile if desired */
-  }
-}
-
-/* Desktop improvements */
-@media (min-width: 768px) {
-  header {
-    padding: 1rem 3rem;
-    min-height: 80px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  nav { margin-left: auto; }
-  nav ul { gap: 1.5rem; }
-  nav a { font-size: 1.1rem; }
-  .contact-info { display: block; }
-
-  .hero h1 { font-size: 3rem; }
-  .hero { padding-top: 4rem; padding-bottom: 4rem; }
-
-  .gallery-grid { grid-template-columns: repeat(4, 1fr); }
-  #today-grid   { grid-template-columns: repeat(4, 1fr); }
-
-  .logo {
-    position: absolute;
-    top: -30px;
-    left: 3rem;
-    height: 150px;
-    z-index: 20;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-  }
-
-  .fillings-accordion { margin: 2rem auto; max-width: 800px; }
-
-  .categories-showcase .showcase-grid {
-    overflow-x: visible;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .categories-showcase .showcase-item { flex: 0 0 30%; }
-  .categories-showcase .showcase-item img { height: 320px; }
-
-  .gallery-header-controls { padding: 1.5rem; margin: 2rem 2rem 3rem; }
-  .central-controls-group { gap: 1rem; }
-  .control-item { padding: 0.7rem 1.2rem; font-size: 1rem; }
-  .search-input { width: 300px; }
-  .sort-select { width: 180px; }
-  .viber-order-btn { max-width: 700px; font-size: 1.2rem; padding: 1.4rem 2rem; }
-}
-/* Mobile header - ultra-compact to prevent double row */
-@media (max-width: 767px) {
-  header {
-    padding: 0.4rem 0.8rem; /* Even tighter padding */
-    gap: 0.4rem;
-    flex-wrap: nowrap; /* Force single row */
-    overflow: hidden; /* Safety */
-  }
-
-  .logo {
-    height: 38px; /* Slightly smaller than 45px - still recognizable */
-    flex-shrink: 0;
-  }
-
-  nav {
-    flex-grow: 1; /* Let nav take available space */
-    overflow: hidden;
-  }
-
-  nav ul {
-    display: flex;
-    gap: 0.6rem; /* Tighter spacing between links */
-    justify-content: flex-end;
-    margin: 0;
-    padding: 0;
-  }
-
-  nav a {
-    font-size: 0.82rem; /* Smaller font - still readable */
-    font-weight: 600;
-    white-space: nowrap; /* Prevent text wrap */
-    padding: 0.2rem 0.4rem; /* Tiny padding for tap area */
-  }
-
-  /* Optional: Slightly shrink floating Viber button on very small screens */
-  .floating-viber {
-    width: 48px;
-    height: 48px;
-    font-size: 1.8rem;
-  }
-}
-/* Extra small phones (e.g. iPhone SE, old Android) - extreme compact mode */
-@media (max-width: 360px) {
-  .logo {
-    height: 35px;
-  }
-
-  nav a {
-    font-size: 0.78rem;
-  }
-
-  nav ul {
-    gap: 0.4rem;
-  }
-}/* Mobile header - force single row even on smallest phones */
-@media (max-width: 767px) {
-  header {
-    padding: 0.35rem 0.5rem;
-    gap: 0.25rem;
-    flex-wrap: nowrap; /* Critical: prevent wrapping */
-    overflow: hidden;
-  }
-
-  .logo {
-    height: 34px; /* Even smaller logo */
-  }
-
-  nav ul {
-    gap: 0.4rem; /* Tighter gaps */
-  }
-
-  nav a {
-    font-size: 0.76rem; /* Smaller font to fit "Въпроси" */
-    font-weight: 600;
-    white-space: nowrap;
-    padding: 0.15rem 0.25rem;
-  }
-}
-
-/* Extra small screens (e.g. iPhone SE) - final squeeze */
-@media (max-width: 360px) {
-  .logo {
-    height: 30px;
-  }
-
-  nav a {
-    font-size: 0.72rem;
-  }
-
-  nav ul {
-    gap: 0.3rem;
-  }
-}
+  <!-- Floating Viber with tracking -->
+  <a href="viber://chat?number=%2B359896229538" 
+     onclick="trackViber('floating')"
+     class="floating-viber">💬</a>
+</body>
+</html>
